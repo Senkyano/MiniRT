@@ -71,11 +71,13 @@ $(OBJS)/%.o : $(SRCS)/%.c
 
 clean :
 	@$(RM) $(OBJS)
+	@$(MAKE) clean -C $(UTILS) --silent
 	@echo "$(C_R)FILE '*.o' for $(NAME) deleted$(RESET)"
 
 fclean :
 	@$(RM) $(NAME)
 	@$(RM) $(OBJS)
+	@$(MAKE) fclean -C $(UTILS) --silent
 	@echo "$(C_W)FILE '*.o' for $(C_R)$(NAME) deleted$(RESET)"
 	@echo "Projet $(C_R)$(NAME) deleted$(RESET)"
 
