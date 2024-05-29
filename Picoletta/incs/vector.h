@@ -1,53 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.h                                           :+:      :+:    :+:   */
+/*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eturiot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 13:34:07 by eturiot           #+#    #+#             */
-/*   Updated: 2024/05/29 14:31:07 by eturiot          ###   ########.fr       */
+/*   Created: 2024/05/29 14:50:20 by eturiot           #+#    #+#             */
+/*   Updated: 2024/05/29 14:50:22 by eturiot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
-
-# include <unistd.h>
-
-# include "libft.h"
-# include "mlx.h"
-
-# include <fcntl.h>
-# include <stdbool.h>
-# include <stdlib.h>
-# include <X11/keysym.h>
-# include <X11/X.h>
-
-# include "element.h"
-# include "error.h"                                                                                                                                                                                                                                                                                                                  
+#ifndef VECTOR_H
+# define VECTOR_H
 
 /* ************************************************************************** */
 /*                                   Macros                                   */
 /* ************************************************************************** */
 
+# define VECTOR_MIN	-1.0
+# define VECTOR_MAX	1.0
+
 /* ************************************************************************** */
 /*                                 Structures                                 */
 /* ************************************************************************** */
 
-typedef	struct s_image
+typedef struct s_vector
 {
-	void		*mlx_ptr;
-	void		*win;
-	t_element	scene;
-}	t_image;
-
+	float	x;
+	float	y;
+	float	z;
+	
+}	t_vector;
 
 /* ************************************************************************** */
 /*                                 Functions                                  */
 /* ************************************************************************** */
-
-bool	extractor(t_element *scene, const int fd);
-bool	parsing(t_element *scene, char *file);
 
 #endif

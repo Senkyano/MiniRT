@@ -1,53 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   miniRT.h                                           :+:      :+:    :+:   */
+/*   error.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eturiot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 13:34:07 by eturiot           #+#    #+#             */
-/*   Updated: 2024/05/29 14:31:07 by eturiot          ###   ########.fr       */
+/*   Created: 2024/05/29 15:18:16 by eturiot           #+#    #+#             */
+/*   Updated: 2024/05/29 15:21:43 by eturiot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef ERROR_H
+# define ERROR_H
 
-# include <unistd.h>
-
-# include "libft.h"
-# include "mlx.h"
-
-# include <fcntl.h>
-# include <stdbool.h>
-# include <stdlib.h>
-# include <X11/keysym.h>
-# include <X11/X.h>
-
-# include "element.h"
-# include "error.h"                                                                                                                                                                                                                                                                                                                  
+# include <errno.h>
+# include <string.h>
 
 /* ************************************************************************** */
 /*                                   Macros                                   */
 /* ************************************************************************** */
 
+# define EXTENSION_SIZE	3
+
+# define ENUMBER_ARGS	"Invalid number of arguments!"
+# define EEXTENSION		"Invalid file extension!"
+
 /* ************************************************************************** */
 /*                                 Structures                                 */
 /* ************************************************************************** */
-
-typedef	struct s_image
-{
-	void		*mlx_ptr;
-	void		*win;
-	t_element	scene;
-}	t_image;
-
 
 /* ************************************************************************** */
 /*                                 Functions                                  */
 /* ************************************************************************** */
 
-bool	extractor(t_element *scene, const int fd);
-bool	parsing(t_element *scene, char *file);
 
 #endif

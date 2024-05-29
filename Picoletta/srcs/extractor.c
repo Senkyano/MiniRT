@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   extractor.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eturiot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 13:30:36 by eturiot           #+#    #+#             */
-/*   Updated: 2024/05/29 13:33:08 by eturiot          ###   ########.fr       */
+/*   Created: 2024/05/29 16:11:37 by eturiot           #+#    #+#             */
+/*   Updated: 2024/05/29 16:11:40 by eturiot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "miniRT.h"
 
-int	main(int ac, char **av, char **env)
+bool extractor(t_element *scene, const int fd)
 {
-	t_image	img;
-	(void)env;
+	bool	is_extracted;
+	char	*tmp;
+	(void)scene;
 
-	if (ac == 2)
+	is_extracted = false;
+	tmp = get_next_line(fd);
+	while (tmp && !errno)
 	{
-		if (parsing(&(img.scene), av[1]))
-			ft_printf("check in main\n");
+		ft_printf("ok -> %s", tmp);
+		free(tmp);
+		tmp = get_next_line(fd);
 	}
-	else
-		return (ft_printf_fd(2, "Error\n%s\n", ENUMBER_ARGS), 1);
-	return (0);
+	return (is_extracted);
 }

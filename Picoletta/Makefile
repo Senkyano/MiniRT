@@ -108,7 +108,8 @@ SRC_DIR_BONUS	= srcs_bonus
 
 MAIN			= main.c
 
-SRC				=
+SRC				= extractor.c					\
+				  parsing.c
 
 MAIN_BONUS		=
 
