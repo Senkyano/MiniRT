@@ -1,0 +1,200 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/mnt/nfs/homes/eturiot/Documents/MiniRT_Home/MiniRT/Picoletta/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+IM1_SX	libs/minilibx-linux/test/main.c	/^#define	IM1_SX	/;"	d	file:
+IM1_SY	libs/minilibx-linux/test/main.c	/^#define	IM1_SY	/;"	d	file:
+IM3_SX	libs/minilibx-linux/test/main.c	/^#define	IM3_SX	/;"	d	file:
+IM3_SY	libs/minilibx-linux/test/main.c	/^#define	IM3_SY	/;"	d	file:
+RETURN	libs/minilibx-linux/mlx_xpm.c	/^#define	RETURN	/;"	d	file:
+WIN1_SX	libs/minilibx-linux/test/main.c	/^#define	WIN1_SX	/;"	d	file:
+WIN1_SY	libs/minilibx-linux/test/main.c	/^#define	WIN1_SY	/;"	d	file:
+X_ShmAttach	libs/minilibx-linux/mlx_new_image.c	/^#define	X_ShmAttach	/;"	d	file:
+bpp1	libs/minilibx-linux/test/main.c	/^int	bpp1;$/;"	v	typeref:typename:int
+bpp2	libs/minilibx-linux/test/main.c	/^int	bpp2;$/;"	v	typeref:typename:int
+bpp3	libs/minilibx-linux/test/main.c	/^int	bpp3;$/;"	v	typeref:typename:int
+bpp4	libs/minilibx-linux/test/main.c	/^int	bpp4;$/;"	v	typeref:typename:int
+check_occurence	libs/libft/srcs/libft/ft_strtrim.c	/^static int	check_occurence(char c, char const *set)$/;"	f	typeref:typename:int	file:	signature:(char c,char const * set)
+color_map_1	libs/minilibx-linux/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f	typeref:typename:int	signature:(void * win,int w,int h)
+color_map_2	libs/minilibx-linux/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f	typeref:typename:int	signature:(unsigned char * data,int bpp,int sl,int w,int h,int endian,int type)
+count_word	libs/libft/srcs/libft/ft_split.c	/^static int	count_word(char const *s, char sep)$/;"	f	typeref:typename:int	file:	signature:(char const * s,char sep)
+data1	libs/minilibx-linux/test/main.c	/^char	*data1;$/;"	v	typeref:typename:char *
+data2	libs/minilibx-linux/test/main.c	/^char	*data2;$/;"	v	typeref:typename:char *
+data3	libs/minilibx-linux/test/main.c	/^char	*data3;$/;"	v	typeref:typename:char *
+data4	libs/minilibx-linux/test/main.c	/^char	*data4;$/;"	v	typeref:typename:char *
+endian1	libs/minilibx-linux/test/main.c	/^int	endian1;$/;"	v	typeref:typename:int
+endian2	libs/minilibx-linux/test/main.c	/^int	endian2;$/;"	v	typeref:typename:int
+endian3	libs/minilibx-linux/test/main.c	/^int	endian3;$/;"	v	typeref:typename:int
+endian4	libs/minilibx-linux/test/main.c	/^int	endian4;$/;"	v	typeref:typename:int
+expose_win1	libs/minilibx-linux/test/main.c	/^int	expose_win1(void *p)$/;"	f	typeref:typename:int	signature:(void * p)
+expose_win2	libs/minilibx-linux/test/main.c	/^int	expose_win2(void *p)$/;"	f	typeref:typename:int	signature:(void * p)
+find_nl	libs/libft/srcs/gnl/gnl_utils.c	/^ssize_t	find_nl(char *str, char ref)$/;"	f	typeref:typename:ssize_t	signature:(char * str,char ref)
+flags_managers	libs/libft/srcs/ft_printf/ft_printf.c	/^void	flags_managers(va_list args, const char flag, int *res, int fd)$/;"	f	typeref:typename:void	signature:(va_list args,const char flag,int * res,int fd)
+free_all_past_string	libs/libft/srcs/libft/ft_split.c	/^static char	**free_all_past_string(char **res_str, size_t index)$/;"	f	typeref:typename:char **	file:	signature:(char ** res_str,size_t index)
+ft_atoi	libs/libft/srcs/libft/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/;"	f	typeref:typename:int	signature:(const char * nptr)
+ft_bzero	libs/libft/srcs/libft/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f	typeref:typename:void	signature:(void * s,size_t n)
+ft_calloc	libs/libft/srcs/libft/ft_calloc.c	/^void	*ft_calloc(size_t nmemb, size_t size)$/;"	f	typeref:typename:void *	signature:(size_t nmemb,size_t size)
+ft_isalnum	libs/libft/srcs/libft/ft_isalnum.c	/^int	ft_isalnum(int c)$/;"	f	typeref:typename:int	signature:(int c)
+ft_isalpha	libs/libft/srcs/libft/ft_isalpha.c	/^int	ft_isalpha(int c)$/;"	f	typeref:typename:int	signature:(int c)
+ft_isascii	libs/libft/srcs/libft/ft_isascii.c	/^int	ft_isascii(int c)$/;"	f	typeref:typename:int	signature:(int c)
+ft_isdigit	libs/libft/srcs/libft/ft_isdigit.c	/^int	ft_isdigit(int c)$/;"	f	typeref:typename:int	signature:(int c)
+ft_isprint	libs/libft/srcs/libft/ft_isprint.c	/^int	ft_isprint(int c)$/;"	f	typeref:typename:int	signature:(int c)
+ft_itoa	libs/libft/srcs/libft/ft_itoa.c	/^char	*ft_itoa(int n)$/;"	f	typeref:typename:char *	signature:(int n)
+ft_lstadd_back	libs/libft/srcs/libft/ft_lstadd_back.c	/^void	ft_lstadd_back(t_list **lst, t_list *new)$/;"	f	typeref:typename:void	signature:(t_list ** lst,t_list * new)
+ft_lstadd_front	libs/libft/srcs/libft/ft_lstadd_front.c	/^void	ft_lstadd_front(t_list **lst, t_list *new)$/;"	f	typeref:typename:void	signature:(t_list ** lst,t_list * new)
+ft_lstclear	libs/libft/srcs/libft/ft_lstclear.c	/^void	ft_lstclear(t_list **lst, void (*del)(void *))$/;"	f	typeref:typename:void	signature:(t_list ** lst,void (* del)(void *))
+ft_lstdelone	libs/libft/srcs/libft/ft_lstdelone.c	/^void	ft_lstdelone(t_list *lst, void (*del)(void*))$/;"	f	typeref:typename:void	signature:(t_list * lst,void (* del)(void *))
+ft_lstiter	libs/libft/srcs/libft/ft_lstiter.c	/^void	ft_lstiter(t_list *lst, void (*f)(void *))$/;"	f	typeref:typename:void	signature:(t_list * lst,void (* f)(void *))
+ft_lstlast	libs/libft/srcs/libft/ft_lstlast.c	/^t_list	*ft_lstlast(t_list *lst)$/;"	f	typeref:typename:t_list *	signature:(t_list * lst)
+ft_lstmap	libs/libft/srcs/libft/ft_lstmap.c	/^t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))$/;"	f	typeref:typename:t_list *	signature:(t_list * lst,void * (* f)(void *),void (* del)(void *))
+ft_lstnew	libs/libft/srcs/libft/ft_lstnew.c	/^t_list	*ft_lstnew(void *content)$/;"	f	typeref:typename:t_list *	signature:(void * content)
+ft_lstsize	libs/libft/srcs/libft/ft_lstsize.c	/^int	ft_lstsize(t_list *lst)$/;"	f	typeref:typename:int	signature:(t_list * lst)
+ft_memchr	libs/libft/srcs/libft/ft_memchr.c	/^void	*ft_memchr(const void *s, int c, size_t n)$/;"	f	typeref:typename:void *	signature:(const void * s,int c,size_t n)
+ft_memcmp	libs/libft/srcs/libft/ft_memcmp.c	/^int	ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f	typeref:typename:int	signature:(const void * s1,const void * s2,size_t n)
+ft_memcpy	libs/libft/srcs/libft/ft_memcpy.c	/^void	*ft_memcpy(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *	signature:(void * dest,const void * src,size_t n)
+ft_memmove	libs/libft/srcs/libft/ft_memmove.c	/^void	*ft_memmove(void *dest, const void *src, size_t n)$/;"	f	typeref:typename:void *	signature:(void * dest,const void * src,size_t n)
+ft_memset	libs/libft/srcs/libft/ft_memset.c	/^void	*ft_memset(void *s, int c, size_t n)$/;"	f	typeref:typename:void *	signature:(void * s,int c,size_t n)
+ft_printf	libs/libft/srcs/ft_printf/ft_printf.c	/^int	ft_printf(const char *str, ...)$/;"	f	typeref:typename:int	signature:(const char * str,...)
+ft_printf_fd	libs/libft/srcs/ft_printf/ft_printf.c	/^int	ft_printf_fd(int fd, const char *str, ...)$/;"	f	typeref:typename:int	signature:(int fd,const char * str,...)
+ft_putchar_fd	libs/libft/srcs/libft/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f	typeref:typename:void	signature:(char c,int fd)
+ft_putendl_fd	libs/libft/srcs/libft/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/;"	f	typeref:typename:void	signature:(char * s,int fd)
+ft_putnbr_fd	libs/libft/srcs/libft/ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/;"	f	typeref:typename:void	signature:(int n,int fd)
+ft_putstr_fd	libs/libft/srcs/libft/ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/;"	f	typeref:typename:void	signature:(char * s,int fd)
+ft_split	libs/libft/srcs/libft/ft_split.c	/^char	**ft_split(char const *s, char c)$/;"	f	typeref:typename:char **	signature:(char const * s,char c)
+ft_strchr	libs/libft/srcs/libft/ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/;"	f	typeref:typename:char *	signature:(const char * s,int c)
+ft_strdup	libs/libft/srcs/libft/ft_strdup.c	/^char	*ft_strdup(const char *s)$/;"	f	typeref:typename:char *	signature:(const char * s)
+ft_striteri	libs/libft/srcs/libft/ft_striteri.c	/^void	ft_striteri(char *s, void (*f)(unsigned int, char*))$/;"	f	typeref:typename:void	signature:(char * s,void (* f)(unsigned int,char *))
+ft_strjoin	libs/libft/srcs/libft/ft_strjoin.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f	typeref:typename:char *	signature:(char const * s1,char const * s2)
+ft_strjoin_gnl	libs/libft/srcs/gnl/gnl_utils.c	/^char	*ft_strjoin_gnl(char **save, char *s2)$/;"	f	typeref:typename:char *	signature:(char ** save,char * s2)
+ft_strlcat	libs/libft/srcs/libft/ft_strlcat.c	/^size_t	ft_strlcat(char *dst, const char *src, size_t size)$/;"	f	typeref:typename:size_t	signature:(char * dst,const char * src,size_t size)
+ft_strlcpy	libs/libft/srcs/libft/ft_strlcpy.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t size)$/;"	f	typeref:typename:size_t	signature:(char * dst,const char * src,size_t size)
+ft_strlen	libs/libft/srcs/libft/ft_strlen.c	/^size_t	ft_strlen(const char *s)$/;"	f	typeref:typename:size_t	signature:(const char * s)
+ft_strmapi	libs/libft/srcs/libft/ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))$/;"	f	typeref:typename:char *	signature:(char const * s,char (* f)(unsigned int,char))
+ft_strnbr	libs/libft/srcs/libft/ft_itoa.c	/^static char	*ft_strnbr(char *str, int sign, long n, int size)$/;"	f	typeref:typename:char *	file:	signature:(char * str,int sign,long n,int size)
+ft_strncmp	libs/libft/srcs/libft/ft_strncmp.c	/^int	ft_strncmp(const char *s1, const char *s2, size_t n)$/;"	f	typeref:typename:int	signature:(const char * s1,const char * s2,size_t n)
+ft_strnstr	libs/libft/srcs/libft/ft_strnstr.c	/^char	*ft_strnstr(const char *big, const char *little, size_t len)$/;"	f	typeref:typename:char *	signature:(const char * big,const char * little,size_t len)
+ft_strrchr	libs/libft/srcs/libft/ft_strrchr.c	/^char	*ft_strrchr(const char *s, int c)$/;"	f	typeref:typename:char *	signature:(const char * s,int c)
+ft_strtrim	libs/libft/srcs/libft/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/;"	f	typeref:typename:char *	signature:(char const * s1,char const * set)
+ft_substr	libs/libft/srcs/libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f	typeref:typename:char *	signature:(char const * s,unsigned int start,size_t len)
+ft_tolower	libs/libft/srcs/libft/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f	typeref:typename:int	signature:(int c)
+ft_toupper	libs/libft/srcs/libft/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f	typeref:typename:int	signature:(int c)
+gere_mouse	libs/minilibx-linux/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f	typeref:typename:int	signature:(int x,int y,int button,void * toto)
+get_next_line	libs/libft/srcs/gnl/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f	typeref:typename:char *	signature:(int fd)
+hexa_converter	libs/libft/srcs/ft_printf/ft_printf_hexa.c	/^void	hexa_converter(unsigned long n, char *base_to, int *res, int fd)$/;"	f	typeref:typename:void	signature:(unsigned long n,char * base_to,int * res,int fd)
+im1	libs/minilibx-linux/test/main.c	/^void    *im1;$/;"	v	typeref:typename:void *
+im2	libs/minilibx-linux/test/main.c	/^void	*im2;$/;"	v	typeref:typename:void *
+im3	libs/minilibx-linux/test/main.c	/^void	*im3;$/;"	v	typeref:typename:void *
+im4	libs/minilibx-linux/test/main.c	/^void	*im4;$/;"	v	typeref:typename:void *
+insert	libs/libft/srcs/libft/ft_split.c	/^static char	*insert(char const *s, size_t size)$/;"	f	typeref:typename:char *	file:	signature:(char const * s,size_t size)
+key_win1	libs/minilibx-linux/test/main.c	/^int	key_win1(int key,void *p)$/;"	f	typeref:typename:int	signature:(int key,void * p)
+key_win2	libs/minilibx-linux/test/main.c	/^int	key_win2(int key,void *p)$/;"	f	typeref:typename:int	signature:(int key,void * p)
+key_win3	libs/minilibx-linux/test/main.c	/^int	key_win3(int key,void *p)$/;"	f	typeref:typename:int	signature:(int key,void * p)
+local_endian	libs/minilibx-linux/test/main.c	/^int	local_endian;$/;"	v	typeref:typename:int
+main	libs/minilibx-linux/test/main.c	/^int	main()$/;"	f	typeref:typename:int	signature:()
+main	libs/minilibx-linux/test/new_win.c	/^int main()$/;"	f	typeref:typename:int	signature:()
+main	srcs/main.c	/^int	main(int ac, char **av, char **env)$/;"	f	typeref:typename:int	signature:(int ac,char ** av,char ** env)
+mlx	libs/minilibx-linux/test/main.c	/^void	*mlx;$/;"	v	typeref:typename:void *
+mlx	libs/minilibx-linux/test/new_win.c	/^void *mlx;$/;"	v	typeref:typename:void *
+mlx_X_error	libs/minilibx-linux/mlx_new_image.c	/^int	mlx_X_error;$/;"	v	typeref:typename:int
+mlx_clear_window	libs/minilibx-linux/mlx_clear_window.c	/^int		mlx_clear_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,t_win_list * win)
+mlx_col_name	libs/minilibx-linux/mlx_rgb.c	/^struct s_col_name mlx_col_name[] =$/;"	v	typeref:struct:s_col_name[]
+mlx_destroy_display	libs/minilibx-linux/mlx_destroy_display.c	/^int	mlx_destroy_display(t_xvar *xvar)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar)
+mlx_destroy_image	libs/minilibx-linux/mlx_destroy_image.c	/^int	mlx_destroy_image(t_xvar *xvar, t_img *img)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,t_img * img)
+mlx_destroy_window	libs/minilibx-linux/mlx_destroy_window.c	/^int	mlx_destroy_window(t_xvar *xvar,t_win_list *win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,t_win_list * win)
+mlx_do_key_autorepeatoff	libs/minilibx-linux/mlx_hook.c	/^int	mlx_do_key_autorepeatoff(t_xvar *xvar)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar)
+mlx_do_key_autorepeaton	libs/minilibx-linux/mlx_hook.c	/^int	mlx_do_key_autorepeaton(t_xvar *xvar)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar)
+mlx_do_sync	libs/minilibx-linux/mlx_hook.c	/^int	mlx_do_sync(t_xvar *xvar)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar)
+mlx_expose_hook	libs/minilibx-linux/mlx_expose_hook.c	/^int		mlx_expose_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int	signature:(t_win_list * win,int (* funct)(),void * param)
+mlx_ext_fullscreen	libs/minilibx-linux/mlx_ext_randr.c	/^int			mlx_ext_fullscreen(t_xvar *xvar, t_win_list *win, int fullscreen)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,t_win_list * win,int fullscreen)
+mlx_flush_event	libs/minilibx-linux/mlx_flush_event.c	/^int	mlx_flush_event(t_xvar *xvar)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar)
+mlx_get_color_value	libs/minilibx-linux/mlx_get_color_value.c	/^int             mlx_get_color_value(t_xvar *xvar,int color)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,int color)
+mlx_get_data_addr	libs/minilibx-linux/mlx_get_data_addr.c	/^char	*mlx_get_data_addr(t_img *img,int *bits_per_pixel,$/;"	f	typeref:typename:char *	signature:(t_img * img,int * bits_per_pixel,int * size_line,int * endian)
+mlx_get_screen_size	libs/minilibx-linux/mlx_screen_size.c	/^int		mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey)$/;"	f	typeref:typename:int	signature:(void * mlx_ptr,int * sizex,int * sizey)
+mlx_hook	libs/minilibx-linux/mlx_hook.c	/^int	mlx_hook(t_win_list *win, int x_event, int x_mask, $/;"	f	typeref:typename:int	signature:(t_win_list * win,int x_event,int x_mask,int (* funct)(),void * param)
+mlx_init	libs/minilibx-linux/mlx_init.c	/^void	*mlx_init()$/;"	f	typeref:typename:void *	signature:()
+mlx_int_anti_resize_win	libs/minilibx-linux/mlx_int_anti_resize_win.c	/^int	mlx_int_anti_resize_win(t_xvar *xvar,Window win,int w,int h)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,Window win,int w,int h)
+mlx_int_deal_shm	libs/minilibx-linux/mlx_init.c	/^int		mlx_int_deal_shm(t_xvar *xvar)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar)
+mlx_int_do_nothing	libs/minilibx-linux/mlx_int_do_nothing.c	/^int	mlx_int_do_nothing(void *param)$/;"	f	typeref:typename:int	signature:(void * param)
+mlx_int_egal_img	libs/minilibx-linux/mlx_lib_xpm.c	/^int	mlx_int_egal_img(XImage *img1,XImage *img2)$/;"	f	typeref:typename:int	signature:(XImage * img1,XImage * img2)
+mlx_int_file_get_rid_comment	libs/minilibx-linux/mlx_xpm.c	/^int	mlx_int_file_get_rid_comment(char *ptr, int size)$/;"	f	typeref:typename:int	signature:(char * ptr,int size)
+mlx_int_get_col_name	libs/minilibx-linux/mlx_xpm.c	/^int	mlx_int_get_col_name(char *str,int size)$/;"	f	typeref:typename:int	signature:(char * str,int size)
+mlx_int_get_good_color	libs/minilibx-linux/mlx_get_color_value.c	/^int		mlx_int_get_good_color(t_xvar *xvar,int color)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,int color)
+mlx_int_get_line	libs/minilibx-linux/mlx_xpm.c	/^char	*mlx_int_get_line(char *ptr,int *pos,int size)$/;"	f	typeref:typename:char *	signature:(char * ptr,int * pos,int size)
+mlx_int_get_text_rgb	libs/minilibx-linux/mlx_xpm.c	/^int	mlx_int_get_text_rgb(char *name, char *end)$/;"	f	typeref:typename:int	signature:(char * name,char * end)
+mlx_int_get_visual	libs/minilibx-linux/mlx_int_get_visual.c	/^int		mlx_int_get_visual(t_xvar *xvar)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar)
+mlx_int_new_image	libs/minilibx-linux/mlx_new_image.c	/^void	*mlx_int_new_image(t_xvar *xvar,int width, int height,int format)$/;"	f	typeref:typename:void *	signature:(t_xvar * xvar,int width,int height,int format)
+mlx_int_new_xshm_image	libs/minilibx-linux/mlx_new_image.c	/^void	*mlx_int_new_xshm_image(t_xvar *xvar,int width,int height,int format)$/;"	f	typeref:typename:void *	signature:(t_xvar * xvar,int width,int height,int format)
+mlx_int_param_ButtonPress	libs/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_ButtonPress(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,XEvent * ev,t_win_list * win)
+mlx_int_param_ButtonRelease	libs/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_ButtonRelease(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,XEvent * ev,t_win_list * win)
+mlx_int_param_Expose	libs/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_Expose(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,XEvent * ev,t_win_list * win)
+mlx_int_param_KeyPress	libs/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_KeyPress(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,XEvent * ev,t_win_list * win)
+mlx_int_param_KeyRelease	libs/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_KeyRelease(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,XEvent * ev,t_win_list * win)
+mlx_int_param_MotionNotify	libs/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_MotionNotify(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,XEvent * ev,t_win_list * win)
+mlx_int_param_event	libs/minilibx-linux/mlx_int_param_event.c	/^int	(*(mlx_int_param_event[]))() =$/;"	v	typeref:typename:int (* ([]))()
+mlx_int_param_generic	libs/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_generic(t_xvar *xvar, XEvent *ev, t_win_list *win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,XEvent * ev,t_win_list * win)
+mlx_int_param_undef	libs/minilibx-linux/mlx_int_param_event.c	/^int	mlx_int_param_undef()$/;"	f	typeref:typename:int	signature:()
+mlx_int_parse_xpm	libs/minilibx-linux/mlx_xpm.c	/^void	*mlx_int_parse_xpm(t_xvar *xvar,void *info,int info_size,char *(*f)())$/;"	f	typeref:typename:void *	signature:(t_xvar * xvar,void * info,int info_size,char * (* f)())
+mlx_int_rgb_conversion	libs/minilibx-linux/mlx_init.c	/^int		mlx_int_rgb_conversion(t_xvar *xvar)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar)
+mlx_int_set_win_event_mask	libs/minilibx-linux/mlx_int_set_win_event_mask.c	/^int	mlx_int_set_win_event_mask(t_xvar *xvar)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar)
+mlx_int_static_line	libs/minilibx-linux/mlx_xpm.c	/^char	*mlx_int_static_line(char **xpm_data,int *pos,int size)$/;"	f	typeref:typename:char *	signature:(char ** xpm_data,int * pos,int size)
+mlx_int_str_str	libs/minilibx-linux/mlx_int_str_to_wordtab.c	/^int	mlx_int_str_str(char *str,char *find,int len)$/;"	f	typeref:typename:int	signature:(char * str,char * find,int len)
+mlx_int_str_str_cote	libs/minilibx-linux/mlx_int_str_to_wordtab.c	/^int	mlx_int_str_str_cote(char *str,char *find,int len)$/;"	f	typeref:typename:int	signature:(char * str,char * find,int len)
+mlx_int_str_to_wordtab	libs/minilibx-linux/mlx_int_str_to_wordtab.c	/^char	**mlx_int_str_to_wordtab(char *str)$/;"	f	typeref:typename:char **	signature:(char * str)
+mlx_int_wait_first_expose	libs/minilibx-linux/mlx_int_wait_first_expose.c	/^int	mlx_int_wait_first_expose(t_xvar *xvar,Window win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,Window win)
+mlx_int_xpm_f_image	libs/minilibx-linux/mlx_lib_xpm.c	/^void		*mlx_int_xpm_f_image(t_xvar *xvar,int *width,int *height,$/;"	f	typeref:typename:void *	signature:(t_xvar * xvar,int * width,int * height,int (* xpm_func)(),void * param)
+mlx_int_xpm_set_pixel	libs/minilibx-linux/mlx_xpm.c	/^int	mlx_int_xpm_set_pixel(t_img *img, char *data, int opp, int col, int x)$/;"	f	typeref:typename:int	signature:(t_img * img,char * data,int opp,int col,int x)
+mlx_key_hook	libs/minilibx-linux/mlx_key_hook.c	/^int		mlx_key_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int	signature:(t_win_list * win,int (* funct)(),void * param)
+mlx_loop	libs/minilibx-linux/mlx_loop.c	/^int			mlx_loop(t_xvar *xvar)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar)
+mlx_loop_end	libs/minilibx-linux/mlx_loop.c	/^int			mlx_loop_end(t_xvar *xvar)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar)
+mlx_loop_hook	libs/minilibx-linux/mlx_loop_hook.c	/^int	mlx_loop_hook(t_xvar *xvar,int (*funct)(),void *param)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,int (* funct)(),void * param)
+mlx_mouse_get_pos	libs/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_get_pos(t_xvar *xvar, t_win_list *win, \\$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,t_win_list * win,int * win_x_return,int * win_y_return)
+mlx_mouse_hide	libs/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_hide(t_xvar *xvar, t_win_list *win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,t_win_list * win)
+mlx_mouse_hook	libs/minilibx-linux/mlx_mouse_hook.c	/^int		mlx_mouse_hook(t_win_list *win,int (*funct)(),void *param)$/;"	f	typeref:typename:int	signature:(t_win_list * win,int (* funct)(),void * param)
+mlx_mouse_move	libs/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_move(t_xvar *xvar, t_win_list *win, int x, int y)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,t_win_list * win,int x,int y)
+mlx_mouse_show	libs/minilibx-linux/mlx_mouse.c	/^int		mlx_mouse_show(t_xvar *xvar, t_win_list *win)$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,t_win_list * win)
+mlx_new_image	libs/minilibx-linux/mlx_new_image.c	/^void	*mlx_new_image(t_xvar *xvar,int width, int height)$/;"	f	typeref:typename:void *	signature:(t_xvar * xvar,int width,int height)
+mlx_new_image2	libs/minilibx-linux/mlx_new_image.c	/^void	*mlx_new_image2(t_xvar *xvar,int width, int height)$/;"	f	typeref:typename:void *	signature:(t_xvar * xvar,int width,int height)
+mlx_new_window	libs/minilibx-linux/mlx_new_window.c	/^void	*mlx_new_window(t_xvar *xvar,int size_x,int size_y,char *title)$/;"	f	typeref:typename:void *	signature:(t_xvar * xvar,int size_x,int size_y,char * title)
+mlx_pixel_put	libs/minilibx-linux/mlx_pixel_put.c	/^int		mlx_pixel_put(t_xvar *xvar,t_win_list *win,$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,t_win_list * win,int x,int y,int color)
+mlx_put_image_to_window	libs/minilibx-linux/mlx_put_image_to_window.c	/^int	mlx_put_image_to_window(t_xvar *xvar,t_win_list *win,t_img *img,$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,t_win_list * win,t_img * img,int x,int y)
+mlx_set_font	libs/minilibx-linux/mlx_set_font.c	/^void	mlx_set_font(t_xvar *xvar, t_win_list *win, char *name)$/;"	f	typeref:typename:void	signature:(t_xvar * xvar,t_win_list * win,char * name)
+mlx_string_put	libs/minilibx-linux/mlx_string_put.c	/^int		mlx_string_put(t_xvar *xvar,t_win_list *win,$/;"	f	typeref:typename:int	signature:(t_xvar * xvar,t_win_list * win,int x,int y,int color,char * string)
+mlx_xpm_file_to_image	libs/minilibx-linux/mlx_lib_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *filename,$/;"	f	typeref:typename:void *	signature:(t_xvar * xvar,char * filename,int * width,int * height)
+mlx_xpm_file_to_image	libs/minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_file_to_image(t_xvar *xvar,char *file,int *width,int *height)$/;"	f	typeref:typename:void *	signature:(t_xvar * xvar,char * file,int * width,int * height)
+mlx_xpm_to_image	libs/minilibx-linux/mlx_lib_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **data,int *width,int *height)$/;"	f	typeref:typename:void *	signature:(t_xvar * xvar,char ** data,int * width,int * height)
+mlx_xpm_to_image	libs/minilibx-linux/mlx_xpm.c	/^void	*mlx_xpm_to_image(t_xvar *xvar,char **xpm_data,int *width,int *height)$/;"	f	typeref:typename:void *	signature:(t_xvar * xvar,char ** xpm_data,int * width,int * height)
+mouse_win1	libs/minilibx-linux/test/main.c	/^int	mouse_win1(int button,int x,int y, void *p)$/;"	f	typeref:typename:int	signature:(int button,int x,int y,void * p)
+mouse_win2	libs/minilibx-linux/test/main.c	/^int	mouse_win2(int button,int x,int y, void *p)$/;"	f	typeref:typename:int	signature:(int button,int x,int y,void * p)
+mouse_win3	libs/minilibx-linux/test/main.c	/^int	mouse_win3(int x,int y, void *p)$/;"	f	typeref:typename:int	signature:(int x,int y,void * p)
+number_size	libs/libft/srcs/libft/ft_itoa.c	/^static unsigned int	number_size(long n)$/;"	f	typeref:typename:unsigned int	file:	signature:(long n)
+print_char	libs/libft/srcs/ft_printf/ft_printf_utils.c	/^void	print_char(int c, int *res, int fd)$/;"	f	typeref:typename:void	signature:(int c,int * res,int fd)
+print_hexa	libs/libft/srcs/ft_printf/ft_printf_hexa.c	/^void	print_hexa(unsigned long n, char flag, int *res, int fd)$/;"	f	typeref:typename:void	signature:(unsigned long n,char flag,int * res,int fd)
+print_nbr	libs/libft/srcs/ft_printf/ft_printf_utils.c	/^void	print_nbr(long n, int *res, int fd)$/;"	f	typeref:typename:void	signature:(long n,int * res,int fd)
+print_ptr	libs/libft/srcs/ft_printf/ft_printf_hexa.c	/^void	print_ptr(void *ptr, int *res, int fd)$/;"	f	typeref:typename:void	signature:(void * ptr,int * res,int fd)
+print_str	libs/libft/srcs/ft_printf/ft_printf_utils.c	/^void	print_str(char *str, int *res, int fd)$/;"	f	typeref:typename:void	signature:(char * str,int * res,int fd)
+print_unbr	libs/libft/srcs/ft_printf/ft_printf_utils.c	/^void	print_unbr(unsigned long n, int *res, int fd)$/;"	f	typeref:typename:void	signature:(unsigned long n,int * res,int fd)
+purge_gnl	libs/libft/srcs/gnl/gnl_utils.c	/^char	*purge_gnl(char *s1, char *s2, char **save)$/;"	f	typeref:typename:char *	signature:(char * s1,char * s2,char ** save)
+read_check_error	libs/libft/srcs/gnl/gnl_utils.c	/^ssize_t	read_check_error(int fd, char *buffer, char **save)$/;"	f	typeref:typename:ssize_t	signature:(int fd,char * buffer,char ** save)
+save_and_return	libs/libft/srcs/gnl/get_next_line.c	/^char	*save_and_return(ssize_t tag, char **save)$/;"	f	typeref:typename:char *	signature:(ssize_t tag,char ** save)
+saved_mode	libs/minilibx-linux/mlx_ext_randr.c	/^RRMode	saved_mode = 0;$/;"	v	typeref:typename:RRMode
+shm_att_pb	libs/minilibx-linux/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f	typeref:typename:int	signature:(Display * d,XErrorEvent * ev)
+sl1	libs/minilibx-linux/test/main.c	/^int	sl1;$/;"	v	typeref:typename:int
+sl2	libs/minilibx-linux/test/main.c	/^int	sl2;$/;"	v	typeref:typename:int
+sl3	libs/minilibx-linux/test/main.c	/^int	sl3;$/;"	v	typeref:typename:int
+sl4	libs/minilibx-linux/test/main.c	/^int	sl4;$/;"	v	typeref:typename:int
+strlcpy_is_not_posix	libs/minilibx-linux/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f	typeref:typename:unsigned int	signature:(char * dest,char * src,unsigned int size)
+win1	libs/minilibx-linux/test/main.c	/^void	*win1;$/;"	v	typeref:typename:void *
+win1	libs/minilibx-linux/test/new_win.c	/^void *win1;$/;"	v	typeref:typename:void *
+win2	libs/minilibx-linux/test/main.c	/^void    *win2;$/;"	v	typeref:typename:void *
+win2	libs/minilibx-linux/test/new_win.c	/^void *win2;$/;"	v	typeref:typename:void *
+win3	libs/minilibx-linux/test/main.c	/^void    *win3;$/;"	v	typeref:typename:void *
+win_count	libs/minilibx-linux/mlx_loop.c	/^static int	win_count(t_xvar *xvar)$/;"	f	typeref:typename:int	file:	signature:(t_xvar * xvar)
+xpm1_x	libs/minilibx-linux/test/main.c	/^int	xpm1_x;$/;"	v	typeref:typename:int
+xpm1_y	libs/minilibx-linux/test/main.c	/^int	xpm1_y;$/;"	v	typeref:typename:int
