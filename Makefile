@@ -12,8 +12,7 @@ INCLUDES =	includes
 #-----------------------#
 RM = rm -fr
 CC = cc
-FLAGS = -Wall -Werror -Wextra $(MATH) -g -I $(INCLUDES) $(EXTENSION)
-MATH = -lm
+FLAGS = -Wall -Werror -Wextra -g -I $(INCLUDES) -I $(UTILS)
 # FLAG_READLINE = -lreadline
 # FLAG_PHILO = -lpthread -D_REENTRANT
 # SANI_MEM = -fsanitize=address -fsanitize=leak -fsanitize=undefined
@@ -47,7 +46,7 @@ EXTENSION = $(UTILS)/lib.a
 #--------------------------------------#
 #		File
 #-----------------------#
-FILE_C =	
+FILE_C =	main.c
 
 SRC = $(addprefix $(SRCS)/, $(FILE_C))
 OBJ = $(patsubst %.c, $(OBJS)/%.o, $(FILE_C))
@@ -59,7 +58,7 @@ all : $(NAME)
 	@echo "$(C_G)Compilation $(NAME) STATUS [OK]$(RESET)"
 
 $(NAME) : $(OBJ) $(LIB)
-	@$(CC) $(FLAGS) $(FLAG_PHILO) -o $(NAME) main.c $(OBJ)
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(EXTENSION)
 
 $(LIB) :
 	@make -C $(UTILS) --silent

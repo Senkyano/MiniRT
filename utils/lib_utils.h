@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 16:20:28 by rihoy             #+#    #+#             */
-/*   Updated: 2024/04/17 18:05:56 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/05/30 13:47:27 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 
 # include <stddef.h>
 # include <stdbool.h>
+
+# define BLK "\e[0;90m"
+# define RED "\e[1;31m"
+# define GR "\e[1;92m"
+# define YL "\e[1;93m"
+# define BLU "\e[1;94m"
+# define PUR "\e[1;95m"
+# define CY "\e[1;96m"
+# define WH "\e[0;97m"
+# define RST "\e[0m"
 
 typedef struct s_data_lib
 {
