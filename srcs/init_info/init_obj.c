@@ -6,11 +6,13 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:40:29 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 16:10:15 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/05/30 18:44:29 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+//on m'envoie un tableau de char **arg de la forme [type, coord, vecteur, RGB]
 
 t_objs	*init_obj(char **arg)
 {
@@ -34,9 +36,24 @@ t_objs	*init_obj(char **arg)
 		if (type[i] == arg[0][0])
 		{
 			if (f[i](obj, arg) == NULL)
-				return (free(obj), NULL);
+					return (free(obj), NULL);
 			break ;
 		}
 	}
 	return (obj);
+}
+
+void	l_add_obj(t_objs **l_objs, t_objs *obj)
+{
+	t_objs	*tmp;
+
+	if (!*l_objs)
+	{
+		*l_objs = obj;
+		return ;
+	}
+	tmp = *l_objs;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = obj;
 }

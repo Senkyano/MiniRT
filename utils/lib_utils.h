@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 16:20:28 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 13:47:27 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/05/30 18:35:05 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ typedef struct s_data_lib
 }	t_data_lib;
 
 // Nbr
+int		lib_atoi(char *nbr);
 int		nbr_base(long int nbr, int base);
+double	lib_atof(char *nbr);
 // FD
 void	write_str_fd(char *str, int fd);
 int		write_fd(char c, int fd);

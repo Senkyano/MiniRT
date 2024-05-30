@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 16:09:38 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/05/30 18:42:58 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,9 @@
 # include "color.h"
 
 # define PI 3.14159265358979323846
-/* ************************************************************************** */
-//		type of objects
-//			sp = 1
-//			cy = 2
-//			pl = 3
-/* ************************************************************************** */
+# define SPHERE 1
+# define CYLINDER 2
+# define PLANE 3
 
 typedef struct s_objs
 {
@@ -72,5 +69,6 @@ typedef struct s_scene
 void	*init_cylinder(t_objs *objs, char **arg);
 void	*init_plane(t_objs *objs, char **arg);
 void	*init_sphere(t_objs *objs, char **arg);
+t_coord	init_coord(char **arg);
 
 #endif

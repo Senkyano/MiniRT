@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extrac_rt.c                                        :+:      :+:    :+:   */
+/*   lib_atoi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 13:11:43 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 18:50:52 by rihoy            ###   ########.fr       */
+/*   Created: 2024/05/30 18:21:09 by rihoy             #+#    #+#             */
+/*   Updated: 2024/05/30 18:23:41 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "lib_utils.h"
 
-bool	extrac_file(char *argv, t_scene *scene)
+int	lib_atoi(char *nbr)
 {
-	int		fd;
-	char	*line;
-	char	**split;
-	t_objs	*obj;
+	int	i;
+	int	neg;
+	int	res;
 
-	fd = open(argv, O_RDONLY);
-	if (fd < 0)
-		return (print_error(RED"Error : \nInvalid file\n"RST), false);
-	while (1)
+	i = 0;
+	neg = 1;
+	res = 0;
+	if (nbr[i] == '-')
 	{
-		line = get_next_line(fd);
+		neg = -1;
+		i++;
 	}
-	return (true);
+	while (nbr[i] >= '0' && nbr[i] <= '9')
+	{
+		res = res * 10 + nbr[i] - '0';
+		i++;
+	}
+	return (res * neg);
 }

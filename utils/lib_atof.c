@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extrac_rt.c                                        :+:      :+:    :+:   */
+/*   lib_atof.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 13:11:43 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 18:50:52 by rihoy            ###   ########.fr       */
+/*   Created: 2024/05/30 18:17:23 by rihoy             #+#    #+#             */
+/*   Updated: 2024/05/30 18:32:04 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-bool	extrac_file(char *argv, t_scene *scene)
+double	lib_atof(char *nbr)
 {
-	int		fd;
-	char	*line;
-	char	**split;
-	t_objs	*obj;
+	double	ent;
+	double	vir;
+	int		len;
 
-	fd = open(argv, O_RDONLY);
-	if (fd < 0)
-		return (print_error(RED"Error : \nInvalid file\n"RST), false);
-	while (1)
-	{
-		line = get_next_line(fd);
-	}
-	return (true);
+	ent = lib_atoi(nbr);
+	while (*nbr && *nbr != '.')
+		nbr++;
+	if (*nbr == '.')
+		nbr++;
+	len = ft_strlen(nbr);
+	vir = lib_atoi(nbr);
+	while (len-- && vir >= 1)
+		vir /= 10;
+	if (ent < 0)
+		return (ent - vir);
+	return (ent + vir);
 }
