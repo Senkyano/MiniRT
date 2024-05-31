@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 18:42:58 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/05/31 15:18:25 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_cam
 	t_coord		coord;
 	t_vecteur	orient;
 	char		fov;
+	bool		init;
 }	t_cam;
 
 typedef struct s_light
@@ -55,6 +56,7 @@ typedef struct s_light
 	t_coord		coord;
 	t_rgb		color;
 	float		ratio;
+	bool		init;
 }	t_light;
 
 typedef struct s_scene
@@ -63,12 +65,15 @@ typedef struct s_scene
 	t_light		light;
 	t_light		ambiant;
 	t_objs		*objs;
+	char		obj_can[6];
+	void		*(*f[3])(t_objs*, char**);
 }	t_scene;
 
 //		Init
-void	*init_cylinder(t_objs *objs, char **arg);
-void	*init_plane(t_objs *objs, char **arg);
-void	*init_sphere(t_objs *objs, char **arg);
-t_coord	init_coord(char **arg);
+void	init_scene(t_scene *scene);
+// void	*init_cylinder(t_objs *objs, char **arg);
+// void	*init_plane(t_objs *objs, char **arg);
+// void	*init_sphere(t_objs *objs, char **arg);
+// t_coord	init_coord(char **arg);
 
 #endif

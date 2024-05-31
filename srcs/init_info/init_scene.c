@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_coord.c                                       :+:      :+:    :+:   */
+/*   init_scene.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 18:08:48 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 18:42:40 by rihoy            ###   ########.fr       */
+/*   Created: 2024/05/31 15:12:28 by rihoy             #+#    #+#             */
+/*   Updated: 2024/05/31 15:19:03 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_coord	init_coord(char **arg)
+void	init_scene(t_scene *scene)
 {
-	t_coord	coord;
-
-	coord.x = ft_atof(arg[0]);
-	coord.y = ft_atof(arg[1]);
-	coord.z = ft_atof(arg[2]);
-	return (coord);
+	scene->objs = NULL;
+	scene->obj_can[0] = 'A';
+	scene->obj_can[1] = 'C';
+	scene->obj_can[2] = 'L';
+	scene->obj_can[3] = 's';
+	scene->obj_can[4] = 'c';
+	scene->obj_can[5] = 'p';
+	// scene->f[0] = &init_sphere;
+	// scene->f[1] = &init_cylinder;
+	// scene->f[2] = &init_plane;
 }

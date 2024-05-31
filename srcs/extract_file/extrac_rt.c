@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:43 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 18:50:52 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/05/31 15:49:05 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,28 @@ bool	extrac_file(char *argv, t_scene *scene)
 	char	**split;
 	t_objs	*obj;
 
+	init_scene(scene);
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
 		return (print_error(RED"Error : \nInvalid file\n"RST), false);
-	while (1)
+	line = get_next_line(fd);
+	if (!line)
+		return (print_error(RED"Error Malloc\n"RST), false);
+	while (line)
 	{
 		line = get_next_line(fd);
+		if (!line)
+			return (false);
 	}
+	return (true);
+}
+
+bool	analysis_init(char *tmp)
+{
+	char	**split;
+	int		i;
+
+	i = 0;
+	split = ft_split(tmp, ' ');
 	return (true);
 }

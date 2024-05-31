@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 14:25:34 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/05/31 15:11:31 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int	main(int argc, char **argv)
 {
+	t_scene	scene;
+
 	if (argc != 2)
 		return (print_error(RED"Error : \nInvalid number of arguments\n"RST), 0);
 	if (!last_cmp(argv[1], ".rt"))
 		return (print_error(RED"Error : \nInvalid file extension\n"RST), 0);
-	if (!extract_file(argv[1]))
+	if (!extract_file(argv[1], &scene))
 		return (1);
 }
