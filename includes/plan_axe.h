@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:44:34 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 14:40:41 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/03 12:49:42 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # define X 0
 # define Y 1
 # define Z 2
+# define MIN_VECTOR -1.0
+# define MAX_VECTOR 1.0
 
 typedef struct s_coord
 {

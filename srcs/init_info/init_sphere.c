@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_scene.c                                       :+:      :+:    :+:   */
+/*   init_sphere.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 15:12:28 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/03 13:11:39 by rihoy            ###   ########.fr       */
+/*   Created: 2024/06/03 12:33:10 by rihoy             #+#    #+#             */
+/*   Updated: 2024/06/03 12:52:17 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	init_scene(t_scene *scene)
+void	*init_sphere(t_objs *obj, char **arg)
 {
-	scene->objs = NULL;
-	scene->obj_can[0] = 'A';
-	scene->obj_can[1] = 'C';
-	scene->obj_can[2] = 'L';
-	scene->obj_can[3] = 's';
-	scene->obj_can[4] = 'c';
-	scene->obj_can[5] = 'p';
-	scene->f[0] = &init_sphere;
-	scene->f[1] = &init_cylinder;
-	scene->f[2] = &init_plan;
+	obj->type = SPHERE;
+	if (!init_coord(&obj->coord, lib_split(arg[1], ',')))
+		return (NULL);
+	obj->diameter = ft_atof(arg[2]);
+	if (obj->diameter < 0)
+		return (print_error(RED"Error : \nInvalid diameter\n"RST), NULL);
+	if (!init_color(&obj->color, lib_split(arg[3], ',')))
+		return (NULL);
+	obj->next = NULL;
+	return (obj);
 }

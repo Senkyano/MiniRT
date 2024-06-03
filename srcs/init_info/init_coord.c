@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_scene.c                                       :+:      :+:    :+:   */
+/*   init_coord.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 15:12:28 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/03 13:11:39 by rihoy            ###   ########.fr       */
+/*   Created: 2024/06/03 12:34:55 by rihoy             #+#    #+#             */
+/*   Updated: 2024/06/03 12:36:26 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-void	init_scene(t_scene *scene)
+bool	init_coord(t_coord *coord, char **arg)
 {
-	scene->objs = NULL;
-	scene->obj_can[0] = 'A';
-	scene->obj_can[1] = 'C';
-	scene->obj_can[2] = 'L';
-	scene->obj_can[3] = 's';
-	scene->obj_can[4] = 'c';
-	scene->obj_can[5] = 'p';
-	scene->f[0] = &init_sphere;
-	scene->f[1] = &init_cylinder;
-	scene->f[2] = &init_plan;
+	if (!arg)
+		return (NULL);
+	coord->x = lib_atof(arg[0]);
+	coord->y = lib_atof(arg[1]);
+	coord->z = lib_atof(arg[2]);
+	free(arg);
+	return (true);
 }

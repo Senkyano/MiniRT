@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:43 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/31 15:49:05 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/03 12:54:59 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,5 @@ bool	extrac_file(char *argv, t_scene *scene)
 		if (!line)
 			return (false);
 	}
-	return (true);
-}
-
-bool	analysis_init(char *tmp)
-{
-	char	**split;
-	int		i;
-
-	i = 0;
-	split = ft_split(tmp, ' ');
 	return (true);
 }

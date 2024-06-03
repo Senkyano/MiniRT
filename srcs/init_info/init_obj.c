@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:40:29 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/31 15:28:00 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/03 13:11:21 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ t_objs	*init_obj(char **arg, t_scene *scene)
 				return (free(obj), NULL);
 			break ;
 		}
+	}
+	if (arg[0][0] != scene->obj_can[i + 3])
+	{
+		free(obj);
+		return (print_error(RED"Error : \nInvalid object type\n"RST), NULL);
 	}
 	return (obj);
 }

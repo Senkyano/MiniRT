@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vecteur.h                                          :+:      :+:    :+:   */
+/*   init_plan.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 12:47:01 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 14:39:59 by rihoy            ###   ########.fr       */
+/*   Created: 2024/06/03 12:47:49 by rihoy             #+#    #+#             */
+/*   Updated: 2024/06/03 12:52:05 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTEUR_H
-# define VECTEUR_H
+#include "minirt.h"
 
-# define MIN_VECTOR -1.0
-# define MAX_VECTOR 1.0
-
-typedef struct s_vecteur
+void	*init_plan(t_objs *obj, char **arg)
 {
-	double	x;
-	double	y;
-	double	z;
-}	t_vecteur;
-
-#endif
+	obj->type = PLANE;
+	if (!init_coord(&obj->coord, lib_split(arg[1], ',')))
+		return (NULL);
+	if (!init_coord(&obj->vecteur, lib_split(arg[2], ',')))
+		return (NULL);
+	if (!init_color(&obj->color, lib_split(arg[3], ',')))
+		return (NULL);
+	obj->next = NULL;
+	return (obj);
+}
