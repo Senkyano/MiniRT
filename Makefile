@@ -6,7 +6,7 @@
 #    By: eturiot <eturiot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/03 02:01:52 by eturiot           #+#    #+#              #
-#    Updated: 2024/05/29 13:38:51 by eturiot          ###   ########.fr        #
+#    Updated: 2024/06/10 14:21:53 by eturiot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,7 +108,8 @@ SRC_DIR_BONUS	= srcs_bonus
 
 MAIN			= main.c
 
-SRC				= extractor.c					\
+SRC				= init_element_struct.c			\
+				  file_manager.c				\
 				  parsing.c
 
 MAIN_BONUS		=

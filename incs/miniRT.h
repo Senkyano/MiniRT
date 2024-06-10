@@ -6,7 +6,7 @@
 /*   By: eturiot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:34:07 by eturiot           #+#    #+#             */
-/*   Updated: 2024/05/29 14:31:07 by eturiot          ###   ########.fr       */
+/*   Updated: 2024/05/31 15:41:54 by eturiot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # include <X11/X.h>
 
 # include "element.h"
-# include "error.h"                                                                                                                                                                                                                                                                                                                  
+# include "error.h"
 
 /* ************************************************************************** */
 /*                                   Macros                                   */
@@ -42,12 +42,13 @@ typedef	struct s_image
 	t_element	scene;
 }	t_image;
 
-
 /* ************************************************************************** */
 /*                                 Functions                                  */
 /* ************************************************************************** */
 
+int		open_str(char *file);
+
 bool	extractor(t_element *scene, const int fd);
-bool	parsing(t_element *scene, char *file);
+bool	parsing(t_element *scene, const int fd);
 
 #endif
