@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"lib_utils.h": "c",
+		"minirt.h": "c"
+	}
+}

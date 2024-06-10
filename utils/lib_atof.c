@@ -6,11 +6,11 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:17:23 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 18:32:04 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/10 13:09:01 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "lib_utils.h"
 
 double	lib_atof(char *nbr)
 {
@@ -23,7 +23,7 @@ double	lib_atof(char *nbr)
 		nbr++;
 	if (*nbr == '.')
 		nbr++;
-	len = ft_strlen(nbr);
+	len = str_len(nbr);
 	vir = lib_atoi(nbr);
 	while (len-- && vir >= 1)
 		vir /= 10;

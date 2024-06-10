@@ -6,7 +6,7 @@
 #    By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 14:10:52 by rihoy             #+#    #+#              #
-#    Updated: 2024/04/20 12:24:02 by rihoy            ###   ########.fr        #
+#    Updated: 2024/06/10 13:33:11 by rihoy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,9 @@ FILE_C =	get_next_line.c \
 			lib_write.c \
 			lib_set.c \
 			printf_error.c \
-			nbr_base.c
+			nbr_base.c \
+			lib_atoi.c \
+			lib_atof.c
 
 FILE_O =	$(FILE_C:%.c=$(OBJS)/%.o)
 
@@ -64,7 +66,7 @@ FILE_O =	$(FILE_C:%.c=$(OBJS)/%.o)
 #		Rules
 #-----------------------#
 all : $(NAME)
-	@echo "$(C_G)Compilation lib STATUS [OK]$(RESET)"
+	@echo "$(C_G)Compilation lib STATUS [OK]$(RESET)\r"
 
 $(NAME) : $(FILE_O)
 	@ar rc $(NAME) $(FILE_O)

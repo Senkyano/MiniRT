@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/03 13:31:21 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/10 14:03:50 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,17 @@ typedef struct s_scene
 }	t_scene;
 
 //		Init
+t_objs	*init_obj(char **arg, t_scene *scene);
+void	l_add_obj(t_objs **l_objs, t_objs *obj);
+
+bool	extrac_file(char *argv, t_scene *scene);
+
 void	init_scene(t_scene *scene);
 void	*init_cylinder(t_objs *objs, char **arg);
 void	*init_plan(t_objs *objs, char **arg);
 void	*init_sphere(t_objs *objs, char **arg);
-void	*init_cam(t_cam *cam, char **arg);
-void	*init_light(t_light *light, char **arg);
+bool	init_cam(t_scene scene, char **arg);
+bool	init_light(t_scene scene, char **arg);
 bool	init_coord(t_coord *coord, char **arg);
 bool	init_color(t_rgb *color, char **arg);
 
