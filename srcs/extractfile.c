@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:33:39 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/11 16:13:50 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/11 16:47:45 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ bool	extractfile(t_scene *scene, char *file)
 	t_file	*tmp;
 	char	*line;
 
+	fd_lines = NULL;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 	{
@@ -34,10 +35,11 @@ bool	extractfile(t_scene *scene, char *file)
 			break ;
 		tmp = new_line(line);
 		if (!tmp)
-			return (clear_fd(fd_lines), close(fd), false);
+			return (free(line), clear_fd(fd_lines), close(fd), false);
 		add_line(&fd_lines, tmp);
 	}
-	
+	if (!analysis_file(scene, fd_lines))
+		return (false);
 	return (true);
 }
 
@@ -46,9 +48,10 @@ bool	analysis_file(t_scene *scene, t_file *fd_lines)
 	t_file	*tmp;
 
 	tmp = fd_lines;
+	(void)scene;
 	while (tmp)
 	{
-		
+		printf("%s\n", tmp->line);
 		tmp = tmp->next;
 	}
 	clear_fd(fd_lines);
