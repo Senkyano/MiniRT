@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 09:46:34 by rihoy             #+#    #+#             */
-/*   Updated: 2024/02/16 15:42:25 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/11 16:20:56 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ typedef struct s_stock
 	char	*line;
 }	t_stock;
 
+typedef struct s_file
+{
+	char	*line;
+	struct	s_file	*next;
+}	t_file;
+
 char	*get_next_line(int fd);
+void	clear_fd(t_file *lst);
+void	add_line(t_file **lst, t_file *new);
+t_file	*new_line(char *line);
 
 #endif

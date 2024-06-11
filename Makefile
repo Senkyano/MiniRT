@@ -49,8 +49,8 @@ EXTENSION = $(UTILS)/lib.a
 #--------------------------------------#
 #		File
 #-----------------------#
-FILE_C =	main.c 
-			# extrac_rt.c
+FILE_C =	main.c \
+			extractfile.c
 
 SRC = $(addprefix $(SRCS)/, $(FILE_C))
 OBJ = $(patsubst %.c, $(OBJS)/%.o, $(FILE_C))

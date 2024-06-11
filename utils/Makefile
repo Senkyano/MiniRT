@@ -6,7 +6,7 @@
 #    By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 14:10:52 by rihoy             #+#    #+#              #
-#    Updated: 2024/06/10 13:33:11 by rihoy            ###   ########.fr        #
+#    Updated: 2024/06/11 14:54:40 by rihoy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,8 @@ FILE_C =	get_next_line.c \
 			printf_error.c \
 			nbr_base.c \
 			lib_atoi.c \
-			lib_atof.c
+			lib_atof.c \
+			fd_lines.c
 
 FILE_O =	$(FILE_C:%.c=$(OBJS)/%.o)
 

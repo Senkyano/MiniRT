@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/11 14:15:43 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/11 14:41:33 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ typedef struct s_scene
 	void		*(*f[6])(t_objs*, char**);
 }	t_scene;
 
+
+bool	extractfile(t_scene *scene, char *file);
 //		Init
 // t_objs	*init_obj(char **arg, t_scene *scene);
 // void	l_add_obj(t_objs **l_objs, t_objs *obj);

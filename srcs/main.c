@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/11 14:22:56 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/11 14:42:46 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int argc, char **argv)
 	if (!check_launch(argc, argv[1]))
 		return (1);
 	printf(GR"Good\n"RST);
+	if (!extractfile(&scene, argv[1]))
+		return (1);
 	return (0);
 }
 
@@ -35,6 +37,12 @@ void	init_scene(t_scene *scene)
 	scene->obj_can[3] = CAM;
 	scene->obj_can[4] = LIGHT;
 	scene->obj_can[5] = AMBIANT;
+	// scene->f[0] = &init_sphere;
+	// scene->f[1] = &init_cylinder;
+	// scene->f[2] = &init_plane;
+	// scene->f[3] = &init_cam;
+	// scene->f[4] = &init_light;
+	// scene->f[5] = &init_ambiant;
 }
 
 bool	check_launch(int argc, char *arg)
