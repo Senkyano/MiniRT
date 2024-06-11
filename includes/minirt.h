@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/10 14:03:50 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/11 14:15:43 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,22 +70,22 @@ typedef struct s_scene
 	bool		ambiant_on;
 	t_objs		*objs;
 	char		obj_can[6];
-	void		*(*f[3])(t_objs*, char**);
+	void		*(*f[6])(t_objs*, char**);
 }	t_scene;
 
 //		Init
-t_objs	*init_obj(char **arg, t_scene *scene);
-void	l_add_obj(t_objs **l_objs, t_objs *obj);
+// t_objs	*init_obj(char **arg, t_scene *scene);
+// void	l_add_obj(t_objs **l_objs, t_objs *obj);
 
-bool	extrac_file(char *argv, t_scene *scene);
+// bool	extrac_file(char *argv, t_scene *scene);
 
-void	init_scene(t_scene *scene);
-void	*init_cylinder(t_objs *objs, char **arg);
-void	*init_plan(t_objs *objs, char **arg);
-void	*init_sphere(t_objs *objs, char **arg);
-bool	init_cam(t_scene scene, char **arg);
-bool	init_light(t_scene scene, char **arg);
-bool	init_coord(t_coord *coord, char **arg);
-bool	init_color(t_rgb *color, char **arg);
+// void	init_scene(t_scene *scene);
+// void	*init_cylinder(t_objs *objs, char **arg);
+// void	*init_plan(t_objs *objs, char **arg);
+// void	*init_sphere(t_objs *objs, char **arg);
+// bool	init_cam(t_scene scene, char **arg);
+// bool	init_light(t_scene scene, char **arg);
+// bool	init_coord(t_coord *coord, char **arg);
+// bool	init_color(t_rgb *color, char **arg);
 
 #endif
