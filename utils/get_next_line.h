@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 09:46:34 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/11 16:20:56 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/12 16:29:07 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_file
 {
 	char	*line;
 	struct	s_file	*next;
+	struct 	s_file	*prev;
 }	t_file;
 
 char	*get_next_line(int fd);

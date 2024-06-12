@@ -6,13 +6,14 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:33:39 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/11 16:47:45 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/12 17:22:06 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 bool	analysis_file(t_scene *scene, t_file *fd_lines);
+void	sgline_supp(t_file **fd_lines);
 
 bool	extractfile(t_scene *scene, char *file)
 {
@@ -46,14 +47,55 @@ bool	extractfile(t_scene *scene, char *file)
 bool	analysis_file(t_scene *scene, t_file *fd_lines)
 {
 	t_file	*tmp;
+	char	**split;
 
+	sgline_supp(&fd_lines);
 	tmp = fd_lines;
-	(void)scene;
 	while (tmp)
 	{
-		printf("%s\n", tmp->line);
+		split = lib_split(tmp->line, " 	");
+		if (!split)
+			return (clear_fd(fd_lines), false);
+		init_obj(scene, split);
 		tmp = tmp->next;
 	}
 	clear_fd(fd_lines);
 	return (true);
+}
+
+bool	char_no_whitespaces(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] < 7 || line[i] > 13)
+			return (true);
+		i++;
+	}
+	return (false);
+}
+
+void	sgline_supp(t_file **fd_lines)
+{
+	t_file	*tmp;
+	t_file	*tmp_check;
+
+	tmp = *fd_lines;
+	while (tmp)
+	{
+		tmp_check = tmp;
+		tmp = tmp->next;
+		if (!char_no_whitespaces(tmp_check->line))
+		{
+			if (!tmp_check->prev)
+				fd_lines = &tmp;
+			else
+				tmp_check->prev->next = tmp;
+			tmp->prev = tmp_check->prev;
+			free(tmp_check->line);
+			free(tmp_check);
+		}
+	}
 }

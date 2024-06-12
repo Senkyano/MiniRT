@@ -24,7 +24,7 @@ EC = echo
 #-----------------------#
 SRCS = srcs
 OBJS = objs
-INIT = init_info
+INIT = initialisation
 
 
 #--------------------------------------#
@@ -55,15 +55,7 @@ FILE_C =	main.c \
 SRC = $(addprefix $(SRCS)/, $(FILE_C))
 OBJ = $(patsubst %.c, $(OBJS)/%.o, $(FILE_C))
 
-# INIT_C =	init_cam.c \
-# 			init_light.c \
-# 			init_obj.c \
-# 			init_coord.c \
-# 			init_color.c \
-# 			init_cylinder.c \
-# 			init_plan.c \
-# 			init_sphere.c \
-# 			init_scene.c
+INIT_C =	init_obj.c
 
 SRC_INIT = $(addprefix $(SRCS)/$(INIT)/, $(INIT_C))
 OBJ_INIT = $(patsubst %.c, $(OBJS)/%.o, $(INIT_C))

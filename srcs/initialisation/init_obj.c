@@ -1,56 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fd_lines.c                                         :+:      :+:    :+:   */
+/*   init_obj.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 14:50:35 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/12 16:29:39 by rihoy            ###   ########.fr       */
+/*   Created: 2024/06/12 16:58:45 by rihoy             #+#    #+#             */
+/*   Updated: 2024/06/12 17:21:35 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include "lib_utils.h"
+#include "minirt.h"
 
-t_file	*new_line(char *line)
+t_objs	*init_obj(t_scene *scene, char **split)
 {
-	t_file	*new;
+	t_objs	*obj;
+	int		i;
 
-	new = malloc(sizeof(t_file));
-	if (!new)
+	obj = malloc(sizeof(t_objs));
+	if (!obj)
 		return (NULL);
-	new->line = line;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+	i = -1;
+	while (++i < 6)
+	{
+		if (scene->obj_can[i] == split[0][0])
+		{
+			if (!scene->f[i](obj, split))
+				return (free(obj), NULL);
+			break ;
+		}
+	}
+	if (i == 6)
+	{
+		free(obj);
+		return (NULL);
+	}
+	return (obj);
 }
 
-void	add_line(t_file **lst, t_file *new)
+void	add_l_objs(t_objs **lst, t_objs *obj)
 {
-	t_file	*tmp;
+	t_objs	*tmp;
 
 	if (!*lst)
 	{
-		*lst = new;
+		*lst = obj;
 		return ;
 	}
 	tmp = *lst;
 	while (tmp->next)
 		tmp = tmp->next;
-	new->prev = tmp;
-	tmp->next = new;
-}
-
-void	clear_fd(t_file *lst)
-{
-	t_file	*tmp;
-
-	while (lst)
-	{
-		tmp = lst->next;
-		free(lst->line);
-		free(lst);
-		lst = tmp;
-	}
+	tmp->next = obj;
 }
