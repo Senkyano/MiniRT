@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 17:03:08 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/13 18:23:33 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 	init_scene(&scene);
 	if (!extractfile(&scene, argv[1]))
 		return (1);
+	clear_objs(&scene.objs);
 	return (0);
 }
 
@@ -42,9 +43,9 @@ void	init_scene(t_scene *scene)
 	scene->f[0] = &init_sphere;
 	scene->f[1] = &init_cylinder;
 	scene->f[2] = &init_plane;
-	// scene->f[3] = &init_cam;
-	// scene->f[4] = &init_light;
-	// scene->f[5] = &init_ambiant;
+	scene->f[3] = &init_cam;
+	scene->f[4] = &init_light;
+	scene->f[5] = &init_ambiant;
 }
 
 bool	check_launch(int argc, char *arg)

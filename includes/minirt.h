@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 17:20:26 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/13 18:23:23 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,15 @@ bool	extractfile(t_scene *scene, char *file);
 //		Init
 t_objs	*init_obj(t_scene *scene, char **split);
 void	add_l_objs(t_objs **lst, t_objs *obj);
+void	clear_objs(t_objs **lst);
 // void	l_add_obj(t_objs **l_objs, t_objs *obj);
 
 // bool	extrac_file(char *argv, t_scene *scene);
-
-// void	init_scene(t_scene *scene);
+void	*init_ambiant(t_objs *obj, char **split, t_scene *scene);
 void	*init_cylinder(t_objs *obj, char **split, t_scene *scene);
 void	*init_plane(t_objs *obj, char **split, t_scene *scene);
 void	*init_sphere(t_objs *obj, char **split, t_scene *scene);
-// bool	init_cam(t_scene scene, char **arg);
+void	*init_cam(t_objs *obj, char **split, t_scene *scene);
 void	*init_light(t_objs *obj, char **split, t_scene *scene);
 
 #endif

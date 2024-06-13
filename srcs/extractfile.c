@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:33:39 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 14:46:45 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/13 18:24:27 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ bool	analysis_file(t_scene *scene, t_file *fd_lines)
 		if (!obj)
 			return (clear_fd(fd_lines), free(split), false);
 		add_l_objs(&scene->objs, obj);
-		free(split);
+		lib_free_split(split);
 		tmp = tmp->next;
 	}
 	clear_fd(fd_lines);

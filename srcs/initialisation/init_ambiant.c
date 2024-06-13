@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:20:27 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 17:21:50 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/13 17:45:29 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*init_ambiant(t_objs *obj, char **split, t_scene *scene)
 		return (NULL);
 	}
 	obj->type = AMBIANT;
-	scene->ambiant = true;
+	scene->ambiant_on = true;
 	if (!is_numberf(split[1]))
 	{
 		printf_error(RED"Incorrect type of arguments for ambiant brightness\n"RST);

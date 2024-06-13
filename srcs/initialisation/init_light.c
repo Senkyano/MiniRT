@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:17:27 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 17:19:26 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/13 17:45:45 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,18 @@
 
 void	*init_light(t_objs *obj, char **split, t_scene *scene)
 {
-	(void)scene;
+	if (scene->light)
+	{
+		printf_error(RED"Multiple light\n"RST);
+		return (NULL);
+	}
 	if (str_len(split[0]) != 2 && sent_len(split) != 4)
 	{
 		printf_error(RED"Incorrect type or nbr arguments : %s\n"RST, split[0]);
 		return (NULL);
 	}
 	obj->type = LIGHT;
+	scene->light_on = true;
 	if (!init_coord(&obj->coord, split[1]))
 		return (NULL);
 	if (!is_numberf(split[2]))

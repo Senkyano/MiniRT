@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:44:50 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 16:40:52 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/13 18:16:44 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ bool	is_numberf(char *str)
 
 	i = -1;
 	dot = false;
-	if (str[i] == '-' || str[i] == '+')
+	if (str[0] == '-' || str[0] == '+')
 		i++;
 	while (str[++i])
 	{
@@ -62,7 +62,7 @@ bool	is_number(char *str)
 	int		i;
 
 	i = -1;
-	if (str[i] == '-')
+	if (str[0] == '-')
 		i++;
 	while (str[++i])
 	{
