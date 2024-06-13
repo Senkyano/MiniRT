@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:44:34 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/03 12:49:42 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/13 15:23:05 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ typedef struct s_coord
 	double	y;
 	double	z;
 }	t_coord;
+
+bool	init_coord(t_coord *coord, char *coord_str);
 
 #endif

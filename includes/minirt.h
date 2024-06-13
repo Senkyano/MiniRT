@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/12 17:21:47 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/13 17:20:26 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@
 # include "color.h"
 
 # define PI 3.14159265358979323846
-# define SPHERE 1
-# define CYLINDER 2
-# define PLANE 3
-# define CAM 4
-# define LIGHT 5
-# define AMBIANT 6
+# define SPHERE 's'
+# define CYLINDER 'c'
+# define PLANE 'p'
+# define CAM 'C'
+# define LIGHT 'L'
+# define AMBIANT 'A'
 
 typedef struct s_objs
 {
@@ -40,39 +40,26 @@ typedef struct s_objs
 	t_coord			vecteur;
 	double			diameter;
 	double			height;
+	int				fov;
 	t_rgb			color;
+	float			ratio;
 	struct s_objs	*next;
 }	t_objs;
 
-typedef struct s_cam
-{
-	t_coord		coord;
-	t_coord		vecteur;
-	char		fov;
-	bool		init;
-}	t_cam;
-
-typedef struct s_light
-{
-	t_coord		coord;
-	t_rgb		color;
-	float		ratio;
-	bool		init;
-}	t_light;
+typedef struct s_scene	t_scene;
 
 typedef struct s_scene
 {
-	t_cam		camera;
+	t_objs		*camera;
 	bool		cam_on;
-	t_light		light;
+	t_objs		*light;
 	bool		light_on;
-	t_light		ambiant;
+	t_objs		*ambiant;
 	bool		ambiant_on;
 	t_objs		*objs;
-	char		obj_can[6];
-	void		*(*f[6])(t_objs*, char**);
+	int			obj_can[6];
+	void		*(*f[6])(t_objs*, char**, t_scene*);
 }	t_scene;
-
 
 bool	extractfile(t_scene *scene, char *file);
 //		Init
@@ -83,12 +70,10 @@ void	add_l_objs(t_objs **lst, t_objs *obj);
 // bool	extrac_file(char *argv, t_scene *scene);
 
 // void	init_scene(t_scene *scene);
-// void	*init_cylinder(t_objs *objs, char **arg);
-// void	*init_plan(t_objs *objs, char **arg);
-// void	*init_sphere(t_objs *objs, char **arg);
+void	*init_cylinder(t_objs *obj, char **split, t_scene *scene);
+void	*init_plane(t_objs *obj, char **split, t_scene *scene);
+void	*init_sphere(t_objs *obj, char **split, t_scene *scene);
 // bool	init_cam(t_scene scene, char **arg);
-// bool	init_light(t_scene scene, char **arg);
-// bool	init_coord(t_coord *coord, char **arg);
-// bool	init_color(t_rgb *color, char **arg);
+void	*init_light(t_objs *obj, char **split, t_scene *scene);
 
 #endif

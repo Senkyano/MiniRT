@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 16:20:28 by rihoy             #+#    #+#             */
-/*   Updated: 2024/05/30 18:35:05 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/13 15:28:00 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int		write_fd(char c, int fd);
 bool	is_space(char c);
 bool	is_num(char c);
 bool	is_char(char c);
+bool	is_numberf(char *str);
+bool	is_number(char *str);
 // CHECK
 bool	str_good(char *str);
 // PRINT

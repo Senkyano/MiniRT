@@ -55,7 +55,12 @@ FILE_C =	main.c \
 SRC = $(addprefix $(SRCS)/, $(FILE_C))
 OBJ = $(patsubst %.c, $(OBJS)/%.o, $(FILE_C))
 
-INIT_C =	init_obj.c
+INIT_C =	init_obj.c \
+			init_color.c \
+			init_coord.c \
+			init_sphere.c \
+			init_cylinder.c \
+			init_plane.c
 
 SRC_INIT = $(addprefix $(SRCS)/$(INIT)/, $(INIT_C))
 OBJ_INIT = $(patsubst %.c, $(OBJS)/%.o, $(INIT_C))

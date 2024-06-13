@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:33:39 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/12 17:22:06 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/13 14:46:45 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,21 @@ bool	extractfile(t_scene *scene, char *file)
 bool	analysis_file(t_scene *scene, t_file *fd_lines)
 {
 	t_file	*tmp;
+	t_objs	*obj;
 	char	**split;
 
 	sgline_supp(&fd_lines);
 	tmp = fd_lines;
 	while (tmp)
 	{
-		split = lib_split(tmp->line, " 	");
+		split = lib_split(tmp->line, " 	\n");
 		if (!split)
 			return (clear_fd(fd_lines), false);
-		init_obj(scene, split);
+		obj = init_obj(scene, split);
+		if (!obj)
+			return (clear_fd(fd_lines), free(split), false);
+		add_l_objs(&scene->objs, obj);
+		free(split);
 		tmp = tmp->next;
 	}
 	clear_fd(fd_lines);
