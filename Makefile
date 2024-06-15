@@ -46,11 +46,24 @@ RESET = \033[0m
 LIB = $(UTILS)/lib.a
 EXTENSION = $(UTILS)/lib.a
 
+#########################################################################
+#							MINI-libx									#
+#########################################################################
+MLX_DIR		= minilibx-linux
+
+MLX			= $(MLX_DIR)/libmlx_Linux.a
+
+MLX_LIB		= mlx_Linux
+
+MLX_LIBS	= -lXext -lX11
+
+
 #--------------------------------------#
 #		File
 #-----------------------#
 FILE_C =	main.c \
-			extractfile.c
+			extractfile.c \
+			display_information.c \
 
 SRC = $(addprefix $(SRCS)/, $(FILE_C))
 OBJ = $(patsubst %.c, $(OBJS)/%.o, $(FILE_C))
@@ -74,8 +87,11 @@ OBJ_INIT = $(patsubst %.c, $(OBJS)/%.o, $(INIT_C))
 all : $(NAME)
 	@echo "$(C_G)Compilation $(NAME) STATUS [OK]$(RESET)"
 
-$(NAME) : $(LIB) $(OBJ) $(OBJ_INIT)
-	@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(OBJ_INIT) $(EXTENSION)
+$(NAME) : $(LIB) $(OBJ) $(OBJ_INIT) $(MLX)
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(OBJ_INIT) $(MLX) $(MLX_LIBS) $(EXTENSION)
+
+$(MLX) :
+	@make -C $(MLX_DIR) --silent
 
 $(LIB) :
 	@make -C $(UTILS) --silent

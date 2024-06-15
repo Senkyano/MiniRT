@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 18:23:23 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/15 15:47:38 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,8 @@ void	*init_plane(t_objs *obj, char **split, t_scene *scene);
 void	*init_sphere(t_objs *obj, char **split, t_scene *scene);
 void	*init_cam(t_objs *obj, char **split, t_scene *scene);
 void	*init_light(t_objs *obj, char **split, t_scene *scene);
+
+//diaplay
+void	display_infobj(t_objs *objs);
 
 #endif

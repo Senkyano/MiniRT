@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 18:23:33 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/15 16:09:14 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,15 @@ int	main(int argc, char **argv)
 
 	if (!check_launch(argc, argv[1]))
 		return (1);
-	printf(GR"Good\n"RST);
 	init_scene(&scene);
+	printf(YL"Extracting file...\n"RST);
 	if (!extractfile(&scene, argv[1]))
 		return (1);
+	printf(BLU"Data in file\n");
+	display_infobj(scene.objs);
+	printf(GR"Extracting finish\n"RST);
+	printf(YL"RayTracing Calculation ...\n"RST);
+	printf(PUR"Clearing memory...\n"RST);
 	clear_objs(&scene.objs);
 	return (0);
 }
