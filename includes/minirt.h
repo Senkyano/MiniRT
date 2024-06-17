@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/15 15:47:38 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/17 14:04:50 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include "get_next_line.h"
 # include "plan_axe.h"
 # include "color.h"
+# include "mlx.h"
+# include "mlx_int.h"
 
 # define PI 3.14159265358979323846
 # define SPHERE 's'
