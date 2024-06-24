@@ -76,7 +76,8 @@ INIT_C =	init_obj.c \
 			init_plane.c \
 			init_light.c \
 			init_cam.c \
-			init_ambiant.c
+			init_ambiant.c \
+			list_org.c
 
 SRC_INIT = $(addprefix $(SRCS)/$(INIT)/, $(INIT_C))
 OBJ_INIT = $(patsubst %.c, $(OBJS)/%.o, $(INIT_C))

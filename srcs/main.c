@@ -6,14 +6,14 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/15 16:09:14 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/24 11:28:01 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 void	init_scene(t_scene *scene);
-
+void	clear_scene(t_scene *scene);
 bool	check_launch(int argc, char *arg);
 
 int	main(int argc, char **argv)
@@ -29,16 +29,34 @@ int	main(int argc, char **argv)
 	printf(BLU"Data in file\n");
 	display_infobj(scene.objs);
 	printf(GR"Extracting finish\n"RST);
+	printf(YL"Re-organisation ...\n"RST);
+	org_lst(&scene);
+	printf(GR"Organisation finish\n"RST);
+	display_infobj(scene.objs);
 	printf(YL"RayTracing Calculation ...\n"RST);
 	printf(PUR"Clearing memory...\n"RST);
-	clear_objs(&scene.objs);
+	clear_scene(&scene);
 	return (0);
+}
+
+void	clear_scene(t_scene *scene)
+{
+	// free(scene->camera);
+	// free(scene->light);
+	// free(scene->ambiant);
+	printf("%c\n", scene->camera->type);
+	printf("%c\n", scene->light->type);
+	printf("%c\n", scene->ambiant->type);
+	clear_objs(&scene->objs);
 }
 
 void	init_scene(t_scene *scene)
 {
 	lib_memset(scene, 0, sizeof(t_scene));
 	scene->objs = NULL;
+	scene->camera = NULL;
+	scene->light = NULL;
+	scene->ambiant = NULL;
 	scene->obj_can[0] = SPHERE;
 	scene->obj_can[1] = CYLINDER;
 	scene->obj_can[2] = PLANE;

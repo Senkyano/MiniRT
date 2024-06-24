@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/17 14:04:50 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/24 11:28:21 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 # include "get_next_line.h"
 # include "plan_axe.h"
 # include "color.h"
-# include "mlx.h"
-# include "mlx_int.h"
+// # include "mlx.h"
+// # include "mlx_int.h"
 
 # define PI 3.14159265358979323846
 # define SPHERE 's'
@@ -46,6 +46,7 @@ typedef struct s_objs
 	t_rgb			color;
 	float			ratio;
 	struct s_objs	*next;
+	struct s_objs	*prev;
 }	t_objs;
 
 typedef struct s_scene	t_scene;
@@ -68,6 +69,7 @@ bool	extractfile(t_scene *scene, char *file);
 t_objs	*init_obj(t_scene *scene, char **split);
 void	add_l_objs(t_objs **lst, t_objs *obj);
 void	clear_objs(t_objs **lst);
+void	org_lst(t_scene *scene);
 // void	l_add_obj(t_objs **l_objs, t_objs *obj);
 
 // bool	extrac_file(char *argv, t_scene *scene);

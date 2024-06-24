@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:58:45 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 18:23:15 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/24 10:27:33 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_objs	*init_obj(t_scene *scene, char **split)
 		return (NULL);
 	}
 	obj->next = NULL;
+	obj->prev = NULL;
 	return (obj);
 }
 
@@ -52,6 +53,7 @@ void	add_l_objs(t_objs **lst, t_objs *obj)
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = obj;
+	obj->prev = tmp;
 }
 
 void	clear_objs(t_objs **lst)
