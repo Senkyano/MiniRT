@@ -6,13 +6,13 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:20:19 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/24 11:28:32 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/25 11:33:16 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-t_objs	*supp_btw(t_objs *obj_prec, t_objs *obj, t_objs *obj_next);
+void	extract_obj(t_objs *prev, t_objs **tmp, t_objs *next, t_scene *scene);
 
 void	org_lst(t_scene *scene)
 {
@@ -24,18 +24,37 @@ void	org_lst(t_scene *scene)
 		if (tmp->type == CAM)
 		{
 			scene->camera = tmp;
-			// tmp = supp_btw(tmp->prev, tmp, tmp->next);
+			extract_obj(tmp->prev, &tmp, tmp->next, scene);
 		}
 		else if (tmp->type == LIGHT)
 		{
 			scene->light = tmp;
-			// tmp = supp_btw(tmp->prev, tmp, tmp->next);
+			extract_obj(tmp->prev, &tmp, tmp->next, scene);
 		}
 		else if (tmp->type == AMBIANT)
 		{
 			scene->ambiant = tmp;
-			// tmp = supp_btw(tmp->prev, tmp, tmp->next);
+			extract_obj(tmp->prev, &tmp, tmp->next, scene);
 		}
-		tmp = tmp->next;
+		else
+			tmp = tmp->next;
 	}
+}
+
+void	extract_obj(t_objs *prev, t_objs **tmp, t_objs *next, t_scene *scene)
+{
+	(*tmp)->prev = NULL;
+	(*tmp)->next = NULL;
+	if (!prev)
+	{
+		scene->objs = next;
+		(*tmp) = next;
+	}
+	else
+	{
+		prev->next = next;
+		(*tmp) = next;
+	}
+	if (next)
+		next->prev = prev;
 }

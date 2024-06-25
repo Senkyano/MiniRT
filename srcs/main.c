@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/24 11:28:01 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/06/25 11:27:19 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,9 @@ int	main(int argc, char **argv)
 
 void	clear_scene(t_scene *scene)
 {
-	// free(scene->camera);
-	// free(scene->light);
-	// free(scene->ambiant);
-	printf("%c\n", scene->camera->type);
-	printf("%c\n", scene->light->type);
-	printf("%c\n", scene->ambiant->type);
+	free(scene->camera);
+	free(scene->light);
+	free(scene->ambiant);
 	clear_objs(&scene->objs);
 }
 
