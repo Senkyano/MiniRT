@@ -12,7 +12,7 @@ INCLUDES =	includes
 #-----------------------#
 RM = rm -fr
 CC = cc
-FLAGS = -Wall -Werror -Wextra -g -I $(INCLUDES) -I $(UTILS)
+FLAGS = -Wall -Werror -Wextra -g -I $(INCLUDES) -I $(UTILS) -I $(MLX_DIR)
 EC = echo
 # FLAG_READLINE = -lreadline
 # FLAG_PHILO = -lpthread -D_REENTRANT
@@ -82,14 +82,20 @@ INIT_C =	init_obj.c \
 SRC_INIT = $(addprefix $(SRCS)/$(INIT)/, $(INIT_C))
 OBJ_INIT = $(patsubst %.c, $(OBJS)/%.o, $(INIT_C))
 
+CAM_C = ray_cam.c \
+		clear_minirt.c
+
+SRC_CAM = $(addprefix $(SRCS)/cam/, $(CAM_C))
+OBJ_CAM = $(patsubst %.c, $(OBJS)/%.o, $(CAM_C))
+
 #--------------------------------------#
 #		Rules
 #-----------------------#
 all : $(NAME)
 	@echo "$(C_G)Compilation $(NAME) STATUS [OK]$(RESET)"
 
-$(NAME) : $(LIB) $(OBJ) $(OBJ_INIT) $(MLX)
-	@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(OBJ_INIT) $(MLX) $(MLX_LIBS) $(EXTENSION)
+$(NAME) : $(LIB) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(MLX)
+	@$(CC) $(FLAGS) $(MLX_LIBS) -o $(NAME) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(MLX) $(MLX_LIBS) $(EXTENSION)
 
 $(MLX) :
 	@make -C $(MLX_DIR) --silent
@@ -106,14 +112,21 @@ $(OBJS)/%.o : $(SRCS)/$(INIT)/%.c
 	@$(CC) $(FLAGS) -c $< -o $@
 	@$(EC) "$(C_B)loading : $(RESET)$< $(C_G)[OK]$(RESET)"
 
+$(OBJS)/%.o : $(SRCS)/cam/%.c
+	@mkdir -p $(OBJS)
+	@$(CC) $(FLAGS) -c $< -o $@
+	@$(EC) "$(C_B)loading : $(RESET)$< $(C_G)[OK]$(RESET)"
+
 clean :
 	@$(RM) $(OBJS)
+	@$(MAKE) clean -C $(MLX_DIR) --silent
 	@$(MAKE) clean -C $(UTILS) --silent
 	@echo "$(C_R)FILE '*.o' for $(NAME) deleted$(RESET)"
 
 fclean :
 	@$(RM) $(NAME)
 	@$(RM) $(OBJS)
+	@$(MAKE) clean -C $(MLX_DIR) --silent
 	@$(MAKE) fclean -C $(UTILS) --silent
 	@echo "$(C_W)FILE '*.o' for $(C_R)$(NAME) deleted$(RESET)"
 	@echo "Projet $(C_R)$(NAME) deleted$(RESET)"

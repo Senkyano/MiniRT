@@ -6,37 +6,64 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/27 13:21:06 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/03 14:23:16 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 void	init_scene(t_scene *scene);
-void	clear_scene(t_scene *scene);
 bool	check_launch(int argc, char *arg);
+void	creat_window(t_window *window);
 
 int	main(int argc, char **argv)
 {
-	t_scene	scene;
+	t_window	window;
 
 	if (!check_launch(argc, argv[1]))
 		return (1);
-	init_scene(&scene);
+	window.mlx = NULL;
+	window.win = NULL;
+	init_scene(&window.scene);
 	printf(YL"Extracting file...\n"RST);
-	if (!extractfile(&scene, argv[1]))
+	if (!extractfile(&window.scene, argv[1]))
 		return (1);
+	window.img_width = 640;
+	window.img_height = 480;
 	printf(BLU"Data in file\n"RST);
-	display_infobj(scene.objs);
+	display_infobj(window.scene.objs);
 	printf(GR"Extracting finish\n"RST);
 	printf(YL"Re-organisation ...\n"RST);
-	org_lst(&scene);
+	org_lst(&window.scene);
 	printf(GR"Organisation finish\n"RST);
-	display_infobj(scene.objs);
+	display_infobj(window.scene.objs);
 	printf(YL"RayTracing Calculation ...\n"RST);
+	creat_window(&window);
+	// camRay(&scene);
 	printf(PUR"Clearing memory...\n"RST);
-	clear_scene(&scene);
+	clear_scene(&window.scene);
 	return (0);
+}
+
+void	creat_window(t_window *window)
+{
+	window->mlx = mlx_init();
+	if (window->mlx == NULL)
+	{
+		printf_error(RED"Error\nmlx_init failed\n"RST);
+		clear_minirt(window);
+		exit(1);
+	}
+	window->win = mlx_new_window(window->mlx, window->img_width, window->img_height, "miniRT");
+	if (window->win == NULL)
+	{
+		printf_error(RED"Error\nmlx_new_window failed\n"RST);
+		clear_minirt(window);
+	}
+	mlx_hook(window->win, DestroyNotify, StructureNotifyMask, clear_minirt, window);
+	mlx_hook(window->win, KeyRelease, KeyReleaseMask, handle_key, window);
+	camRay(window);
+	mlx_loop(window->mlx);
 }
 
 void	clear_scene(t_scene *scene)
