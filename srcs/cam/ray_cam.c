@@ -6,11 +6,13 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/03 14:37:42 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/03 15:04:21 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+// si on as rien on met la couleur en noir
 
 void	camRay(t_window *window)
 {
@@ -28,9 +30,9 @@ void	camRay(t_window *window)
 		i = 0;
 		while (i < window->img_width)
 		{
-			double r = (double)i / window->img_width;
-			double g = (double)j / window->img_height;
-			double b = 0.65;
+			double r = 0;
+			double g = 0;
+			double b = 0;
 
 			// printf("r = %f, g = %f, b = %f\n", r, g, b);
 			color.r = (int)(255.999 * r);
