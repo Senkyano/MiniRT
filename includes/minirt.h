@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/04 11:36:02 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/04 12:06:39 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ typedef struct s_objs
 	double			diameter;
 	double			height;
 	int				fov;
+	double			win_width;
+	double			win_height;
 	t_rgb			color;
 	float			ratio;
 	struct s_objs	*next;

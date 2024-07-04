@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:46:15 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/15 16:04:23 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/04 12:10:30 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	display_cam(t_objs *objs)
 {
 	printf("===========\n");
 	printf("Camera\n");
-	printf("Coord: %f %f %f\n", objs->coord.x, objs->coord.y, objs->coord.z);
+	printf("Coord: %f %f %f\n", objs->origin.x, objs->origin.y, objs->origin.z);
 	printf("Vecteur: %f %f %f\n", objs->vecteur.x, objs->vecteur.y, objs->vecteur.z);
 	printf("Fov: %d\n", objs->fov);
 	printf("===========\n\n");
@@ -59,7 +59,7 @@ void	display_light(t_objs *objs)
 {
 	printf("===========\n");
 	printf("Light\n");
-	printf("Coord: %f %f %f\n", objs->coord.x, objs->coord.y, objs->coord.z);
+	printf("Coord: %f %f %f\n", objs->origin.x, objs->origin.y, objs->origin.z);
 	printf("Ratio: %f\n", objs->ratio);
 	printf("Color: %d %d %d\n", objs->color.r, objs->color.g, objs->color.b);
 	printf("===========\n\n");
@@ -78,7 +78,7 @@ void	display_sphere(t_objs *objs)
 {
 	printf("===========\n");
 	printf("Sphere\n");
-	printf("Coord: %f %f %f\n", objs->coord.x, objs->coord.y, objs->coord.z);
+	printf("Coord: %f %f %f\n", objs->origin.x, objs->origin.y, objs->origin.z);
 	printf("Diameter: %f\n", objs->diameter);
 	printf("Color: %d %d %d\n", objs->color.r, objs->color.g, objs->color.b);
 	printf("===========\n\n");
@@ -88,7 +88,7 @@ void	display_cylinder(t_objs *objs)
 {
 	printf("===========\n");
 	printf("Cylinder\n");
-	printf("Coord: %f %f %f\n", objs->coord.x, objs->coord.y, objs->coord.z);
+	printf("Coord: %f %f %f\n", objs->origin.x, objs->origin.y, objs->origin.z);
 	printf("Diameter: %f\n", objs->diameter);
 	printf("Height: %f\n", objs->height);
 	printf("Color: %d %d %d\n", objs->color.r, objs->color.g, objs->color.b);
@@ -99,7 +99,7 @@ void	display_plane(t_objs *objs)
 {
 	printf("===========\n");
 	printf("Plane\n");
-	printf("Coord: %f %f %f\n", objs->coord.x, objs->coord.y, objs->coord.z);
+	printf("Coord: %f %f %f\n", objs->origin.x, objs->origin.y, objs->origin.z);
 	printf("Vecteur: %f %f %f\n", objs->vecteur.x, objs->vecteur.y, objs->vecteur.z);
 	printf("Color: %d %d %d\n", objs->color.r, objs->color.g, objs->color.b);
 	printf("===========\n\n");
