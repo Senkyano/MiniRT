@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:17:27 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 17:45:45 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:59:33 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*init_light(t_objs *obj, char **split, t_scene *scene)
 	}
 	obj->type = LIGHT;
 	scene->light_on = true;
-	if (!init_coord(&obj->coord, split[1]))
+	if (!init_coord(&obj->origin, split[1]))
 		return (NULL);
 	if (!is_numberf(split[2]))
 	{

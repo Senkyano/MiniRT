@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 13:42:48 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 15:28:22 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:59:14 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*init_sphere(t_objs *obj, char **split, t_scene *scene)
 		return (NULL);
 	}
 	obj->type = SPHERE;
-	if (!init_coord(&obj->coord, split[1]))
+	if (!init_coord(&obj->origin, split[1]))
 		return (NULL);
 	if (!is_numberf(split[2]))
 	{

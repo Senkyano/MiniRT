@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/03 14:17:20 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/04 11:36:02 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 typedef struct s_objs
 {
 	char			type;
-	t_coord			coord;
+	t_coord			origin;
 	t_coord			vecteur;
 	double			diameter;
 	double			height;
@@ -75,6 +75,8 @@ typedef struct s_window
 	int		img_height;
 	t_scene	scene;
 }	t_window;
+
+// color
 
 bool	extractfile(t_scene *scene, char *file);
 //		Init

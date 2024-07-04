@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:49:23 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 16:54:46 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/04 09:59:41 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*init_cylinder(t_objs *obj, char **split, t_scene *scene)
 		return (NULL);
 	}
 	obj->type = CYLINDER;
-	if (!init_coord(&obj->coord, split[1]))
+	if (!init_coord(&obj->origin, split[1]))
 		return (NULL);
 	if (!init_coord(&obj->vecteur, split[2]))
 		return (NULL);

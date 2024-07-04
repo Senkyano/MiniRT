@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 12:48:27 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/04 11:36:40 by rihoy            ###   ########.fr       */
+/*   Created: 2024/07/04 11:34:29 by rihoy             #+#    #+#             */
+/*   Updated: 2024/07/04 11:36:34 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "minirt.h"
 
-# define MIN_COLOR 0
-# define MAX_COLOR 255
-
-typedef struct s_rgb
+int	color_pix(int r, int g, int b)
 {
-	unsigned char	r;
-	unsigned char	g;
-	unsigned char	b;
-}	t_rgb;
-
-bool	init_color(t_rgb *color, char *color_str);
-int		color_pix(int r, int g, int b);
-
-#endif
+	return (r << 16 | g << 8 | b);
+}

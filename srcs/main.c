@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/03 14:23:16 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/04 10:07:58 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	main(int argc, char **argv)
 	printf(YL"Extracting file...\n"RST);
 	if (!extractfile(&window.scene, argv[1]))
 		return (1);
-	window.img_width = 640;
-	window.img_height = 480;
+	window.img_width = 960;
+	window.img_height = 540;
 	printf(BLU"Data in file\n"RST);
 	display_infobj(window.scene.objs);
 	printf(GR"Extracting finish\n"RST);
