@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/04 12:06:39 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/08 12:02:48 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <stdbool.h>
 # include <string.h>
 # include "lib_utils.h"
+# include "lib_math.h"
 # include "get_next_line.h"
-# include "plan_axe.h"
 # include "color.h"
 // # include ""
 # include <X11/X.h>

@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   plan_axe.h                                         :+:      :+:    :+:   */
+/*   vec_length.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 12:44:34 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 15:23:05 by rihoy            ###   ########.fr       */
+/*   Created: 2024/07/08 12:06:39 by rihoy             #+#    #+#             */
+/*   Updated: 2024/07/08 12:07:52 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLAN_AXE_H
-# define PLAN_AXE_H
+#include "lib_math.h"
 
-# define X 0
-# define Y 1
-# define Z 2
-# define MIN_VECTOR -1.0
-# define MAX_VECTOR 1.0
 
-typedef struct s_coord
+double	vec_length(t_coord vec)
 {
-	double	x;
-	double	y;
-	double	z;
-}	t_coord;
-
-bool	init_coord(t_coord *coord, char *coord_str);
-
-#endif
+	return (sqrt((vec.x * vec.x) + (vec.y * vec.y) + (vec.z * vec.z)));
+}

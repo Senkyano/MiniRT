@@ -6,7 +6,7 @@
 #    By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 14:10:52 by rihoy             #+#    #+#              #
-#    Updated: 2024/06/11 14:54:40 by rihoy            ###   ########.fr        #
+#    Updated: 2024/07/08 12:35:43 by rihoy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = lib.a
 #-----------------------#
 RM = rm -fr
 CC = cc
-FLAGS = -Wall -Werror -Wextra -g3
+FLAGS = -Wall -Werror -Wextra -g3 -I includes
 
 #--------------------------------------#
 #       directory
@@ -41,9 +41,7 @@ RESET = \033[0m
 #--------------------------------------#
 #		File
 #-----------------------#
-FILE_C =	get_next_line.c \
-			lib_char.c \
-			lib_check.c \
+FILE_C =	lib_check.c \
 			lib_cmp.c \
 			lib_free.c \
 			lib_is.c \
@@ -53,15 +51,23 @@ FILE_C =	get_next_line.c \
 			lib_split.c \
 			lib_srch.c \
 			lib_strdup.c \
-			lib_write.c \
 			lib_set.c \
 			printf_error.c \
-			nbr_base.c \
-			lib_atoi.c \
-			lib_atof.c \
-			fd_lines.c
+			nbr_base.c
 
 FILE_O =	$(FILE_C:%.c=$(OBJS)/%.o)
+
+WRITE_C = fd_lines.c get_next_line.c lib_write.c lib_char.c
+
+SRC_WRITE = $(addprefix $(SRCS)/write/, $(WRITE_C))
+OBJ_WRITE = $(patsubst %.c, $(OBJS)/%.o, $(WRITE_C))
+
+MATH_C =	lib_atoi.c lib_atof.c init_coord.c \
+			vec_dotcross.c normal_vec.c vec_length.c \
+			basic_math.c
+
+SRC_MATH = $(addprefix $(SRCS)/math/, $(MATH_C))
+OBJ_MATH = $(patsubst %.c, $(OBJS)/%.o, $(MATH_C))
 
 #--------------------------------------#
 #		Rules
@@ -69,10 +75,20 @@ FILE_O =	$(FILE_C:%.c=$(OBJS)/%.o)
 all : $(NAME)
 	@echo "$(C_G)Compilation lib STATUS [OK]$(RESET)\r"
 
-$(NAME) : $(FILE_O)
-	@ar rc $(NAME) $(FILE_O)
+$(NAME) : $(FILE_O) $(OBJ_WRITE) $(OBJ_MATH)
+	@ar rc $(NAME) $(FILE_O) $(OBJ_WRITE) $(OBJ_MATH)
 
 $(OBJS)/%.o : %.c
+	@mkdir -p $(OBJS)
+	@$(CC) $(FLAGS) -c $< -o $@
+	@echo "$(C_B)loading : $(C_W)$< $(C_G)[OK]$(RESET)"
+
+$(OBJS)/%.o : write/%.c
+	@mkdir -p $(OBJS)
+	@$(CC) $(FLAGS) -c $< -o $@
+	@echo "$(C_B)loading : $(C_W)$< $(C_G)[OK]$(RESET)"
+	
+$(OBJS)/%.o : math/%.c
 	@mkdir -p $(OBJS)
 	@$(CC) $(FLAGS) -c $< -o $@
 	@echo "$(C_B)loading : $(C_W)$< $(C_G)[OK]$(RESET)"

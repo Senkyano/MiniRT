@@ -6,11 +6,11 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:28:29 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/13 18:21:27 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/08 12:04:34 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#include "lib_math.h"
 
 bool	init_coord(t_coord *coord, char *coord_str)
 {

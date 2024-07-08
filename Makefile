@@ -12,7 +12,7 @@ INCLUDES =	includes
 #-----------------------#
 RM = rm -fr
 CC = cc
-FLAGS = -Wall -Werror -Wextra -g -I $(INCLUDES) -I $(UTILS) -I $(MLX_DIR)
+FLAGS = -Wall -Werror -Wextra -g -I $(INCLUDES) -I $(UTILS)/includes -I $(MLX_DIR)
 EC = echo
 # FLAG_READLINE = -lreadline
 # FLAG_PHILO = -lpthread -D_REENTRANT
@@ -70,7 +70,6 @@ OBJ = $(patsubst %.c, $(OBJS)/%.o, $(FILE_C))
 
 INIT_C =	init_obj.c \
 			init_color.c \
-			init_coord.c \
 			init_sphere.c \
 			init_cylinder.c \
 			init_plane.c \
