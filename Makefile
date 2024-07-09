@@ -88,13 +88,21 @@ CAM_C = ray_cam.c \
 SRC_CAM = $(addprefix $(SRCS)/cam/, $(CAM_C))
 OBJ_CAM = $(patsubst %.c, $(OBJS)/%.o, $(CAM_C))
 
+EQ_C =	eq_plane.c \
+		eq_sphere.c \
+		init_ray.c \
+		point_inter.c
+
+SRC_EQ = $(addprefix $(SRCS)/equation/, $(EQ_C))
+OBJ_EQ = $(patsubst %.c, $(OBJS)/%.o, $(EQ_C))
+
 #--------------------------------------#
 #		Rules
 #-----------------------#
 all : $(NAME)
 	@echo "$(C_G)Compilation $(NAME) STATUS [OK]$(RESET)"
 
-$(NAME) : $(LIB) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(MLX)
+$(NAME) : $(LIB) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(OBJ_EQ) $(MLX)
 	@$(CC) $(FLAGS) $(MLX_LIBS) -o $(NAME) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(MLX) $(MLX_LIBS) $(EXTENSION)
 
 $(MLX) :
@@ -116,6 +124,12 @@ $(OBJS)/%.o : $(SRCS)/cam/%.c
 	@mkdir -p $(OBJS)
 	@$(CC) $(FLAGS) -c $< -o $@
 	@$(EC) "$(C_B)loading : $(RESET)$< $(C_G)[OK]$(RESET)"
+
+$(OBJS)/%.o : $(SRCS)/equation/%.c
+	@mkdir -p $(OBJS)
+	@$(CC) $(FLAGS) -c $< -o $@
+	@$(EC) "$(C_B)loading : $(RESET)$< $(C_G)[OK]$(RESET)"
+
 
 clean :
 	@$(RM) $(OBJS)
