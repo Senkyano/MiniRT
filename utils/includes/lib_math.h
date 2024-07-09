@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:59:05 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/08 12:34:33 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/09 13:48:11 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ double	sqr_nbr(double nbr);
 
 //vecteur calcul
 double	vec_length(t_coord vec);
-t_coord	vec_cross(t_coord vec1, t_coord vec2);
-double	vec_dot(t_coord vec1, t_coord vec2);
+t_coord	cross_product(t_coord vec1, t_coord vec2);
+double	dot_product(t_coord vec1, t_coord vec2);
+t_coord	sub_vec(t_coord vec1, t_coord vec2);
 t_coord	normal_vec(t_coord vec);
 
 #endif

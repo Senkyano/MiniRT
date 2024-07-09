@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 13:42:48 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/04 09:59:14 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/09 12:27:33 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	*init_sphere(t_objs *obj, char **split, t_scene *scene)
 		return (NULL);
 	if (!is_numberf(split[2]))
 	{
-		printf_error(RED"Incorrect type of arguments for sphere diameter\n"RST);
+		printf_error(RED"Incorrect type of arguments for sphere radius\n"RST);
 		return (NULL);
 	}
-	obj->diameter = lib_atof(split[2]);
+	obj->radius = lib_atof(split[2]) / 2;
 	if (!init_color(&obj->color, split[3]))
 		return (NULL);
 	return (obj);

@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:11:17 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/08 12:30:30 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/09 13:26:17 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // a faire
 
-double	vec_dot(t_coord vec1, t_coord vec2)
+double	dot_product(t_coord vec1, t_coord vec2)
 {
 	double	dot;
 
@@ -22,7 +22,7 @@ double	vec_dot(t_coord vec1, t_coord vec2)
 	return (dot);
 }
 
-t_coord	vec_cross(t_coord vec1, t_coord vec2)
+t_coord	cross_product(t_coord vec1, t_coord vec2)
 {
 	t_coord	cross;
 

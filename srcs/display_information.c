@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 15:46:15 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/04 12:10:30 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/09 12:10:40 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	display_sphere(t_objs *objs)
 	printf("===========\n");
 	printf("Sphere\n");
 	printf("Coord: %f %f %f\n", objs->origin.x, objs->origin.y, objs->origin.z);
-	printf("Diameter: %f\n", objs->diameter);
+	printf("radius: %f\n", objs->radius);
 	printf("Color: %d %d %d\n", objs->color.r, objs->color.g, objs->color.b);
 	printf("===========\n\n");
 }
@@ -89,7 +89,7 @@ void	display_cylinder(t_objs *objs)
 	printf("===========\n");
 	printf("Cylinder\n");
 	printf("Coord: %f %f %f\n", objs->origin.x, objs->origin.y, objs->origin.z);
-	printf("Diameter: %f\n", objs->diameter);
+	printf("radius: %f\n", objs->radius);
 	printf("Height: %f\n", objs->height);
 	printf("Color: %d %d %d\n", objs->color.r, objs->color.g, objs->color.b);
 	printf("===========\n\n");

@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/08 12:02:48 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/09 12:10:40 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@
 typedef struct s_objs
 {
 	char			type;
+	bool			ray_inter;
 	t_coord			origin;
 	t_coord			vecteur;
-	double			diameter;
+	double			radius;
 	double			height;
 	int				fov;
 	double			win_width;
