@@ -6,12 +6,14 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/10 14:50:33 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/10 15:37:26 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include <math.h>
+
+/* element qui defini si on touche un obj ou pas raytrace + intersection (inter choisis le bonne equation a faire)*/
 
 t_ray	make_ray(t_cam *cam, double u, double v);
 void	cam_pep(t_cam *cam, t_objs *info_cam);
