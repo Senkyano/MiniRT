@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ray.h                                              :+:      :+:    :+:   */
+/*   nearest.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 12:39:31 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/10 13:23:32 by rihoy            ###   ########.fr       */
+/*   Created: 2024/07/10 12:42:15 by rihoy             #+#    #+#             */
+/*   Updated: 2024/07/10 13:20:10 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAY_H
-# define RAY_H
+#include "minirt.h"
 
-# include "lib_math.h"
-# include "minirt.h"
+int	len_lst(t_objs *objs);
 
-# define RAY_T_MIN 0.001
-# define RAY_T_MAX 1.0e30
-
-typedef struct s_ray
+void	org_nearest(t_scene *scene)
 {
-	t_coord	origin;
-	t_coord	dir;
-}	t_ray;
+	t_objs	*tmp;
+	t_objs	*nearest;
+	int		i;
 
-t_coord	point_of_ray(t_ray ray, double t);
+	(void)nearest;
+	(void)tmp;
+	i = len_lst(scene->objs);
+	printf("i = %d\n", i);
+}
 
-typedef struct s_eq
+int	len_lst(t_objs *objs)
 {
-	double	t0;
-	double	t1;
-	double	discriminant;
-}	t_eq;
+	int		i;
+	t_objs	*tmp;
 
-//(~r - p)*n = 0 (plane equation)
-// ray ~r = p + td
-
-#endif
+	i = 0;
+	tmp = objs;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
+}

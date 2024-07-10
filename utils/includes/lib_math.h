@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:59:05 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/09 13:48:11 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/10 14:14:03 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 
 # include <math.h>
 # include "lib_utils.h"
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <errno.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <math.h>
+# include <pthread.h>
+# include <sys/time.h>
 
 # define X 0
 # define Y 1
@@ -40,6 +50,8 @@ double	vec_length(t_coord vec);
 t_coord	cross_product(t_coord vec1, t_coord vec2);
 double	dot_product(t_coord vec1, t_coord vec2);
 t_coord	sub_vec(t_coord vec1, t_coord vec2);
+t_coord	add_vec(t_coord vec1, t_coord vec2);
+t_coord	mult_vec(t_coord vec1, double d);
 t_coord	normal_vec(t_coord vec);
 
 #endif

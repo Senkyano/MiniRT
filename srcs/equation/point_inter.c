@@ -6,13 +6,13 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:35:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/09 12:31:52 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/10 13:21:35 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ray.h"
 
-t_coord	point_of_ray(t_ray ray, double t) // calcule le point d'intersection
+t_coord	point_of_ray(t_ray ray, double t)
 {
 	t_coord	inter;
 

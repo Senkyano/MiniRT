@@ -76,7 +76,8 @@ INIT_C =	init_obj.c \
 			init_light.c \
 			init_cam.c \
 			init_ambiant.c \
-			list_org.c
+			list_org.c \
+			nearest.c
 
 SRC_INIT = $(addprefix $(SRCS)/$(INIT)/, $(INIT_C))
 OBJ_INIT = $(patsubst %.c, $(OBJS)/%.o, $(INIT_C))
@@ -103,7 +104,7 @@ all : $(NAME)
 	@echo "$(C_G)Compilation $(NAME) STATUS [OK]$(RESET)"
 
 $(NAME) : $(LIB) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(OBJ_EQ) $(MLX)
-	@$(CC) $(FLAGS) $(MLX_LIBS) -o $(NAME) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(MLX) $(MLX_LIBS) $(EXTENSION)
+	@$(CC) -lm $(FLAGS) $(MLX_LIBS) -o $(NAME) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(MLX) $(MLX_LIBS) $(EXTENSION)
 
 $(MLX) :
 	@make -C $(MLX_DIR) --silent

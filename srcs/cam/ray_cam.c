@@ -6,37 +6,58 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/08 11:21:08 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/10 14:50:33 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+#include <math.h>
 
-void	camRay(t_window *window)
+t_ray	make_ray(t_cam *cam, double u, double v);
+void	cam_pep(t_cam *cam, t_objs *info_cam);
+
+void	cam_ray(t_window *window)
 {
-	int	i = 0;
-	int	j = 0;
+	t_cam	cam;
+	t_ray	ray;
+	int	i;
+	int	j;
 	t_rgb	color;
-	printf("window->img_width = %d, window->img_height = %d\n", window->img_width, window->img_height);
-	lib_memset(&color, 0, sizeof(t_rgb));
-	while (j < window->img_height)
-	{
-		i = 0;
-		while (i < window->img_width)
-		{
-			double r = (double)i / (window->img_width - 1);
-			double g = (double)j / (window->img_height - 1);
-			double b = 0.5;
 
-			// printf("r = %f, g = %f, b = %f\n", r, g, b);
-			color.r = (int)(255.999 * r);
-			color.g = (int)(255.999 * g);
-			color.b = (int)(255.999 * b);
+	lib_memset(&color, 0, sizeof(t_rgb));
+	j = -1;
+	cam_pep(&cam, window->scene.camera);
+	while (j++ < window->img_height)
+	{
+		i = -1;
+		while (++i < window->img_width)
+		{
+			ray = make_ray(&cam, (double)i / window->img_width, (double)j / window->img_height);
 			
 			int	color_pixel = color_pix(color.r, color.g, color.b);
 			mlx_pixel_put(window->mlx, window->win, i, j, color_pixel);
-			i++;
 		}
-		j++;
 	}
+}
+
+void	cam_pep(t_cam *cam, t_objs *info_cam)
+{
+	cam->origin = info_cam->origin;
+	cam->dir = info_cam->vecteur;
+	cam->dir = normal_vec(cam->dir);
+	cam->fov = info_cam->fov;
+	cam->vec_right = cross_product(cam->dir, (t_coord){0, 1, 0});
+	cam->vec_up = cross_product(cam->vec_right, cam->dir);
+}
+
+t_ray	make_ray(t_cam *cam, double u, double v)
+{
+	t_ray	ray;
+	t_coord	dir;
+
+	ray.origin = cam->origin;
+	dir = add_vec(cam->dir, add_vec(mult_vec(cam->vec_right, u), mult_vec(cam->vec_up, v)));
+	dir = normal_vec(dir);
+	ray.dir = dir;
+	return (ray);
 }

@@ -6,7 +6,7 @@
 #    By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 14:10:52 by rihoy             #+#    #+#              #
-#    Updated: 2024/07/08 12:35:43 by rihoy            ###   ########.fr        #
+#    Updated: 2024/07/10 14:23:22 by rihoy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ all : $(NAME)
 	@echo "$(C_G)Compilation lib STATUS [OK]$(RESET)\r"
 
 $(NAME) : $(FILE_O) $(OBJ_WRITE) $(OBJ_MATH)
-	@ar rc $(NAME) $(FILE_O) $(OBJ_WRITE) $(OBJ_MATH)
+	@ar rc -lm $(NAME) $(FILE_O) $(OBJ_WRITE) $(OBJ_MATH)
 
 $(OBJS)/%.o : %.c
 	@mkdir -p $(OBJS)

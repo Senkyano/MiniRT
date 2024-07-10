@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/09 12:10:40 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/10 15:25:38 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,16 @@
 # include "lib_math.h"
 # include "get_next_line.h"
 # include "color.h"
+# include <errno.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <sys/time.h>
 // # include ""
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include "mlx.h"
 # include "mlx_int.h"
+# include "ray.h"
 
 # define PI 3.14159265358979323846
 # define SPHERE 's'
@@ -37,6 +42,7 @@
 # define CAM 'C'
 # define LIGHT 'L'
 # define AMBIANT 'A'
+# define ASPECT_RATIO (16 / 9)
 
 typedef struct s_objs
 {
@@ -54,6 +60,17 @@ typedef struct s_objs
 	struct s_objs	*next;
 	struct s_objs	*prev;
 }	t_objs;
+
+typedef struct	s_cam
+{
+	t_coord		origin;
+	t_coord		dir;
+	int			fov;
+	t_coord		vec_up;
+	t_coord		vec_right;
+	double		win_width;
+	double		win_height;
+}	t_cam;
 
 typedef struct s_scene	t_scene;
 
@@ -79,6 +96,12 @@ typedef struct s_window
 	t_scene	scene;
 }	t_window;
 
+typedef struct s_hit
+{
+	t_rgb	*color;
+	double	f;
+} t_hit;
+
 // color
 
 bool	extractfile(t_scene *scene, char *file);
@@ -94,7 +117,7 @@ void	clear_scene(t_scene *scene);
 
 int	handle_key(int keycode, t_window *window);
 
-void	camRay(t_window *window);
+void	cam_ray(t_window *window);
 
 // bool	extrac_file(char *argv, t_scene *scene);
 void	*init_ambiant(t_objs *obj, char **split, t_scene *scene);
@@ -106,5 +129,9 @@ void	*init_light(t_objs *obj, char **split, t_scene *scene);
 
 //diaplay
 void	display_infobj(t_objs *objs);
+void	org_nearest(t_scene *scene);
+
+//cam
+void	cam_pep(t_cam *cam, t_objs *info_cam);
 
 #endif

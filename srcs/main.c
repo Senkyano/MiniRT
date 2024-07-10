@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/04 10:07:58 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/10 14:04:27 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,14 @@ int	main(int argc, char **argv)
 	printf(YL"Extracting file...\n"RST);
 	if (!extractfile(&window.scene, argv[1]))
 		return (1);
-	window.img_width = 960;
-	window.img_height = 540;
-	printf(BLU"Data in file\n"RST);
-	display_infobj(window.scene.objs);
-	printf(GR"Extracting finish\n"RST);
+	window.img_width = 1280;
+	window.img_height = 780;
 	printf(YL"Re-organisation ...\n"RST);
 	org_lst(&window.scene);
 	printf(GR"Organisation finish\n"RST);
 	display_infobj(window.scene.objs);
 	printf(YL"RayTracing Calculation ...\n"RST);
 	creat_window(&window);
-	// camRay(&scene);
 	printf(PUR"Clearing memory...\n"RST);
 	clear_scene(&window.scene);
 	return (0);
@@ -54,15 +50,17 @@ void	creat_window(t_window *window)
 		clear_minirt(window);
 		exit(1);
 	}
-	window->win = mlx_new_window(window->mlx, window->img_width, window->img_height, "miniRT");
+	window->win = mlx_new_window(window->mlx, window->img_width, \
+	window->img_height, "miniRT");
 	if (window->win == NULL)
 	{
 		printf_error(RED"Error\nmlx_new_window failed\n"RST);
 		clear_minirt(window);
 	}
-	mlx_hook(window->win, DestroyNotify, StructureNotifyMask, clear_minirt, window);
+	mlx_hook(window->win, DestroyNotify, StructureNotifyMask, clear_minirt, \
+	window);
 	mlx_hook(window->win, KeyRelease, KeyReleaseMask, handle_key, window);
-	camRay(window);
+	cam_ray(window);
 	mlx_loop(window->mlx);
 }
 
@@ -102,7 +100,7 @@ bool	check_launch(int argc, char *arg)
 		printf_error(RED"Error\nWrong number of arguments\n"RST);
 		return (false);
 	}
-	if (!last_cmp(arg ,".rt"))
+	if (!last_cmp(arg, ".rt"))
 	{
 		printf_error(RED"Error\nWrong file extension\n"RST);
 		return (false);
