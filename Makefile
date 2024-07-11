@@ -89,9 +89,7 @@ CAM_C = ray_cam.c \
 SRC_CAM = $(addprefix $(SRCS)/cam/, $(CAM_C))
 OBJ_CAM = $(patsubst %.c, $(OBJS)/%.o, $(CAM_C))
 
-EQ_C =	eq_plane.c \
-		eq_sphere.c \
-		init_ray.c \
+EQ_C =	init_ray.c \
 		point_inter.c
 
 SRC_EQ = $(addprefix $(SRCS)/equation/, $(EQ_C))
@@ -104,7 +102,7 @@ all : $(NAME)
 	@echo "$(C_G)Compilation $(NAME) STATUS [OK]$(RESET)"
 
 $(NAME) : $(LIB) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(OBJ_EQ) $(MLX)
-	@$(CC) -lm $(FLAGS) $(MLX_LIBS) -o $(NAME) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(MLX) $(MLX_LIBS) $(EXTENSION)
+	@$(CC) -lm $(FLAGS) $(MLX_LIBS) -o $(NAME) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(OBJ_EQ) $(MLX) $(MLX_LIBS) $(EXTENSION)
 
 $(MLX) :
 	@make -C $(MLX_DIR) --silent

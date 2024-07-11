@@ -6,60 +6,73 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/10 15:37:26 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/11 14:52:08 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+#include "ray.h"
 #include <math.h>
 
-/* element qui defini si on touche un obj ou pas raytrace + intersection (inter choisis le bonne equation a faire)*/
+/* element qui defini si on touche un obj ou pas raytrace + intersection 
+(inter choisis le bonne equation a faire)*/
 
-t_ray	make_ray(t_cam *cam, double u, double v);
-void	cam_pep(t_cam *cam, t_objs *info_cam);
+t_ray	build_camray(t_objs *o_cam, double x, double y);
 
 void	cam_ray(t_window *window)
 {
-	t_cam	cam;
 	t_ray	ray;
-	int	i;
-	int	j;
 	t_rgb	color;
+	int		i;
+	int		j;
 
-	lib_memset(&color, 0, sizeof(t_rgb));
 	j = -1;
-	cam_pep(&cam, window->scene.camera);
+	lib_memset(&color, 0, sizeof(t_rgb));
 	while (j++ < window->img_height)
 	{
 		i = -1;
 		while (++i < window->img_width)
 		{
-			ray = make_ray(&cam, (double)i / window->img_width, (double)j / window->img_height);
-			
-			int	color_pixel = color_pix(color.r, color.g, color.b);
-			mlx_pixel_put(window->mlx, window->win, i, j, color_pixel);
+			ray = build_camray(window->scene.camera, i, j);
 		}
 	}
 }
 
-void	cam_pep(t_cam *cam, t_objs *info_cam)
+t_rgb	ray_color(t_ray cam_ray)
 {
-	cam->origin = info_cam->origin;
-	cam->dir = info_cam->vecteur;
-	cam->dir = normal_vec(cam->dir);
-	cam->fov = info_cam->fov;
-	cam->vec_right = cross_product(cam->dir, (t_coord){0, 1, 0});
-	cam->vec_up = cross_product(cam->vec_right, cam->dir);
+	
 }
 
-t_ray	make_ray(t_cam *cam, double u, double v)
+t_coord	cam_to_world(t_cam *cam, t_coord dir)
+{
+	t_coord	new_dir;
+
+	new_dir.x = cam->vec_right.x * dir.x + cam->vec_up.x
+		* dir.y + cam->vec_forward.x * dir.z;
+	new_dir.y = cam->vec_right.y * dir.x + cam->vec_up.y
+		* dir.y + cam->vec_forward.y * dir.z;
+	new_dir.z = cam->vec_right.z * dir.x + cam->vec_up.z
+		* dir.y + cam->vec_forward.z * dir.z;
+	return (new_dir);
+}
+
+t_ray	build_camray(t_objs *o_cam, double x, double y)
 {
 	t_ray	ray;
-	t_coord	dir;
+	t_cam	cam;
 
-	ray.origin = cam->origin;
-	dir = add_vec(cam->dir, add_vec(mult_vec(cam->vec_right, u), mult_vec(cam->vec_up, v)));
-	dir = normal_vec(dir);
-	ray.dir = dir;
+	ray.origin = o_cam->origin;
+	cam.origin = o_cam->origin;
+	cam.vec_forward = normalize(o_cam->vecteur);
+	cam.vec_right = cross_product(cam.vec_forward, (t_coord){0, 1, 0});
+	cam.vec_up = cross_product(cam.vec_right, cam.vec_forward);
+	cam.dir.x = (2.0 * (x + 0.5) / (double)WIN_WIDTH - 1.0)
+		* tan(o_cam->fov / 2 * PI / 180.0) * (double)ASPECT_RATIO;
+	cam.dir.y = (1.0 - 2.0 * (y + 0.5) / (double)WIN_HEIGHT)
+		* tan(o_cam->fov / 2 * PI / 180.0);
+	cam.dir.z = FOCAL_DIST;
+	cam.dir = cam_to_world(&cam, cam.dir);
+	cam.dir = normalize(cam.dir);
+	ray.dir = cam.dir;
 	return (ray);
 }

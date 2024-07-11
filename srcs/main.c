@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/10 14:04:27 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/11 14:49:51 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,11 @@ int	main(int argc, char **argv)
 	window.mlx = NULL;
 	window.win = NULL;
 	init_scene(&window.scene);
-	printf(YL"Extracting file...\n"RST);
 	if (!extractfile(&window.scene, argv[1]))
 		return (1);
-	window.img_width = 1280;
-	window.img_height = 780;
-	printf(YL"Re-organisation ...\n"RST);
+	window.img_width = WIN_WIDTH;
+	window.img_height = WIN_HEIGHT;
 	org_lst(&window.scene);
-	printf(GR"Organisation finish\n"RST);
-	display_infobj(window.scene.objs);
 	printf(YL"RayTracing Calculation ...\n"RST);
 	creat_window(&window);
 	printf(PUR"Clearing memory...\n"RST);

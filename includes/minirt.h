@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/10 15:25:38 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/11 14:49:05 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@
 # define CAM 'C'
 # define LIGHT 'L'
 # define AMBIANT 'A'
-# define ASPECT_RATIO (16 / 9)
+# define FOCAL_DIST 0.5
+# define WIN_WIDTH 1280
+# define WIN_HEIGHT 780
+# define ASPECT_RATIO (WIN_WIDTH / WIN_HEIGHT)
 
 typedef struct s_objs
 {
@@ -66,6 +69,7 @@ typedef struct	s_cam
 	t_coord		origin;
 	t_coord		dir;
 	int			fov;
+	t_coord		vec_forward;
 	t_coord		vec_up;
 	t_coord		vec_right;
 	double		win_width;
@@ -115,7 +119,7 @@ void	org_lst(t_scene *scene);
 int		clear_minirt(t_window *window);
 void	clear_scene(t_scene *scene);
 
-int	handle_key(int keycode, t_window *window);
+int		handle_key(int keycode, t_window *window);
 
 void	cam_ray(t_window *window);
 
@@ -130,6 +134,7 @@ void	*init_light(t_objs *obj, char **split, t_scene *scene);
 //diaplay
 void	display_infobj(t_objs *objs);
 void	org_nearest(t_scene *scene);
+void	display_cam(t_objs *objs);
 
 //cam
 void	cam_pep(t_cam *cam, t_objs *info_cam);

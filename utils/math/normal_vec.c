@@ -6,13 +6,13 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:08:39 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/10 14:00:04 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/11 13:08:28 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_math.h"
 
-t_coord	normal_vec(t_coord vec)
+t_coord	normalize(t_coord vec)
 {
 	double	length;
 

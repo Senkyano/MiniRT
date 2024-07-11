@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:39:31 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/10 13:23:32 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/11 14:42:04 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "lib_math.h"
 # include "minirt.h"
+# include "lib_utils.h"
 
 # define RAY_T_MIN 0.001
 # define RAY_T_MAX 1.0e30

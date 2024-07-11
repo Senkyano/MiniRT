@@ -6,11 +6,12 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:35:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/10 13:21:35 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/11 14:42:38 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ray.h"
+#include "minirt.h"
 
 t_coord	point_of_ray(t_ray ray, double t)
 {
@@ -21,3 +22,12 @@ t_coord	point_of_ray(t_ray ray, double t)
 	inter.z = ray.origin.z + (t * ray.dir.z);
 	return (inter);
 }
+
+// int	intersection(t_ray *r, t_objs *obj, double *t)
+// {
+// 	if (obj->type == SPHERE)
+// 		return (eq_sphere(obj, r, t));
+// 	if (obj->type == PLANE)
+// 		return (plane_inter(r, obj, t));
+// 	return (0);
+// }
