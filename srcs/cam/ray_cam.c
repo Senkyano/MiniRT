@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/11 14:52:08 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/11 15:36:52 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,33 @@
 (inter choisis le bonne equation a faire)*/
 
 t_ray	build_camray(t_objs *o_cam, double x, double y);
+t_rgb	ray_color(t_ray cam_ray);
 
 void	cam_ray(t_window *window)
 {
 	t_ray	ray;
-	t_rgb	color;
+	int		color;
 	int		i;
 	int		j;
 
 	j = -1;
-	lib_memset(&color, 0, sizeof(t_rgb));
 	while (j++ < window->img_height)
 	{
 		i = -1;
 		while (++i < window->img_width)
 		{
 			ray = build_camray(window->scene.camera, i, j);
+
+			color = color_pix(ray_color(ray));
+			mlx_pixel_put(window->mlx, window->win, i, j, color);
 		}
 	}
 }
 
 t_rgb	ray_color(t_ray cam_ray)
 {
-	
+	(void)cam_ray;
+	return ((t_rgb){0, 0, 0});
 }
 
 t_coord	cam_to_world(t_cam *cam, t_coord dir)

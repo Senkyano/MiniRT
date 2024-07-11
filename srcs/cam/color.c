@@ -6,13 +6,13 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:34:29 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/04 11:36:34 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/11 15:33:48 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int	color_pix(int r, int g, int b)
+int	color_pix(t_rgb	color)
 {
-	return (r << 16 | g << 8 | b);
+	return (color.r << 16 | color.g << 8 | color.b);
 }

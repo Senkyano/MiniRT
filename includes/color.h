@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:48:27 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/04 11:36:40 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/11 15:35:02 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ typedef struct s_rgb
 }	t_rgb;
 
 bool	init_color(t_rgb *color, char *color_str);
-int		color_pix(int r, int g, int b);
+int		color_pix(t_rgb	color);
 
 #endif
