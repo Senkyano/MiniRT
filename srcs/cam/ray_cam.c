@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/11 15:36:52 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/11 15:59:36 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,16 @@ void	cam_ray(t_window *window)
 	}
 }
 
-t_rgb	ray_color(t_ray cam_ray)
+t_rgb ray_color(t_ray r) 
 {
-	(void)cam_ray;
-	return ((t_rgb){0, 0, 0});
+    double a;
+    t_rgb result_color;
+
+    a = 0.5 * (r.dir.y + 1.0);
+    result_color.r = (1.0 - a) * 255 + a * 127.5;
+    result_color.g = (1.0 - a) * 255 + a * 178.5;
+    result_color.b = (1.0 - a) * 255 + a * 255;
+    return (result_color);
 }
 
 t_coord	cam_to_world(t_cam *cam, t_coord dir)
