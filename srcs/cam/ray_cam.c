@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/12 12:57:48 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/12 12:59:20 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window)
 	t_objs	*tmp;
 
 	tmp = objs;
+	(void)window;
 	while (tmp)
 	{
 		if (tmp->type == SPHERE)
@@ -62,7 +63,7 @@ t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window)
 		}
 		tmp = tmp->next;
 	}
-	return (window->scene.ambiant->color);
+	return ((t_rgb){0, 0, 0});
 }
 
 t_coord	cam_to_world(t_cam *cam, t_coord dir)

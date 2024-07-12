@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/12 12:58:29 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/12 12:59:37 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ double	hit_sphere(t_objs *sphere, t_ray *r)
 
 double	hit_plane(t_objs *plane, t_ray *r)
 {
-
+	(void)plane;
+	(void)r;
 	return (0);
 }
