@@ -90,7 +90,8 @@ SRC_CAM = $(addprefix $(SRCS)/cam/, $(CAM_C))
 OBJ_CAM = $(patsubst %.c, $(OBJS)/%.o, $(CAM_C))
 
 EQ_C =	init_ray.c \
-		point_inter.c
+		point_inter.c \
+		hit.c
 
 SRC_EQ = $(addprefix $(SRCS)/equation/, $(EQ_C))
 OBJ_EQ = $(patsubst %.c, $(OBJS)/%.o, $(EQ_C))

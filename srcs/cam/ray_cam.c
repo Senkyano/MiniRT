@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/11 15:59:36 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/12 12:57:48 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 (inter choisis le bonne equation a faire)*/
 
 t_ray	build_camray(t_objs *o_cam, double x, double y);
-t_rgb	ray_color(t_ray cam_ray);
+t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window);
 
 void	cam_ray(t_window *window)
 {
@@ -34,23 +34,35 @@ void	cam_ray(t_window *window)
 		while (++i < window->img_width)
 		{
 			ray = build_camray(window->scene.camera, i, j);
-
-			color = color_pix(ray_color(ray));
+			color = color_pix(ray_color(ray, window->scene.objs, window));
 			mlx_pixel_put(window->mlx, window->win, i, j, color);
 		}
 	}
 }
 
-t_rgb ray_color(t_ray r) 
+t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window)
 {
-    double a;
-    t_rgb result_color;
+	double	a;
+	t_objs	*tmp;
 
-    a = 0.5 * (r.dir.y + 1.0);
-    result_color.r = (1.0 - a) * 255 + a * 127.5;
-    result_color.g = (1.0 - a) * 255 + a * 178.5;
-    result_color.b = (1.0 - a) * 255 + a * 255;
-    return (result_color);
+	tmp = objs;
+	while (tmp)
+	{
+		if (tmp->type == SPHERE)
+		{
+			a = hit_sphere(tmp, &r);
+			if (a > 0.0)
+				return (tmp->color);
+		}
+		if (tmp->type == PLANE)
+		{
+			a = hit_plane(tmp, &r);
+			if (a > 0.0)
+				return (tmp->color);
+		}
+		tmp = tmp->next;
+	}
+	return (window->scene.ambiant->color);
 }
 
 t_coord	cam_to_world(t_cam *cam, t_coord dir)
@@ -76,8 +88,9 @@ t_ray	build_camray(t_objs *o_cam, double x, double y)
 	cam.vec_forward = normalize(o_cam->vecteur);
 	cam.vec_right = cross_product(cam.vec_forward, (t_coord){0, 1, 0});
 	cam.vec_up = cross_product(cam.vec_right, cam.vec_forward);
-	cam.dir.x = (2.0 * (x + 0.5) / (double)WIN_WIDTH - 1.0)
-		* tan(o_cam->fov / 2 * PI / 180.0) * (double)ASPECT_RATIO;
+	cam.dir.x = (2.0 * (x + 0.5) / (double)WIN_WIDTH - 1)
+		* tan(o_cam->fov / 2 * PI / 180.0)
+		* ((double)((double)WIN_WIDTH / (double)WIN_HEIGHT));
 	cam.dir.y = (1.0 - 2.0 * (y + 0.5) / (double)WIN_HEIGHT)
 		* tan(o_cam->fov / 2 * PI / 180.0);
 	cam.dir.z = FOCAL_DIST;

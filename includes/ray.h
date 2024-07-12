@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:39:31 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/11 14:42:04 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/12 12:44:21 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ typedef struct s_ray
 	t_coord	dir;
 }	t_ray;
 
-t_coord	point_of_ray(t_ray ray, double t);
-
 typedef struct s_eq
 {
 	double	t0;
@@ -35,7 +33,10 @@ typedef struct s_eq
 	double	discriminant;
 }	t_eq;
 
-//(~r - p)*n = 0 (plane equation)
-// ray ~r = p + td
+typedef struct s_objs t_objs;
+
+t_coord	point_of_ray(t_ray ray, double t);
+double	hit_sphere(t_objs *sphere, t_ray *r);
+double	hit_plane(t_objs *plane, t_ray *r);
 
 #endif

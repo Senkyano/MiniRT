@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/11 14:49:05 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/12 11:50:53 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@
 # define AMBIANT 'A'
 # define FOCAL_DIST 0.5
 # define WIN_WIDTH 1280
-# define WIN_HEIGHT 780
+# define WIN_HEIGHT 720
 # define ASPECT_RATIO (WIN_WIDTH / WIN_HEIGHT)
 
 typedef struct s_objs
