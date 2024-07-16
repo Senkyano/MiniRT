@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:39:31 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/16 18:44:44 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/16 20:34:58 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_eq
 }	t_eq;
 
 typedef struct s_objs t_objs;
+
+t_coord		inv_vec(t_coord v);
 
 t_coord		point_of_ray(t_ray ray, double t);
 t_in_hit	hit_sphere(t_objs *sphere, t_ray *r);

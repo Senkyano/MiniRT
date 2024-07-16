@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 18:17:23 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/16 12:22:46 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/16 22:42:11 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,28 @@
 double	lib_atof(char *nbr)
 {
 	double	ent;
-	double	vir;
 	double	neg;
+	double	vir;
 	int		len;
+	int		i;
 
-	if (*nbr == '-')
+	i = 0;
+	neg = 1;
+	if (nbr[i] == '-')
 	{
 		neg = -1;
-		nbr++;
+		i++;
 	}
-	ent = lib_atoi(nbr);
-	while (*nbr && *nbr != '.')
-		nbr++;
-	if (*nbr == '.')
-		nbr++;
-	len = str_len(nbr);
-	vir = lib_atoi(nbr);
+	ent = lib_atoi(nbr + i);
+	while (nbr[i] && nbr[i] != '.')
+		i++;
+	if (nbr[i] == '.')
+		i++;
+	len = str_len(nbr + i);
+	vir = lib_atoi(nbr + i);
 	while (len-- && vir >= 1)
 		vir /= 10;
 	if (ent < 0)
 		return ((ent - vir) * neg);
-	return ((ent + vir * neg));
+	return ((ent + vir) * neg);
 }
