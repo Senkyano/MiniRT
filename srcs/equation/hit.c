@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/16 22:49:03 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/16 22:59:13 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ t_in_hit	hit_plane(t_objs *plane, t_ray *r)
 	dotn = dot_product(plane->vecteur, r->dir);
 	if (dotn == 0.0)
 		return (hit);
-	t = dot_product(sub_vec(plane->origin, r->origin), plane->vecteur) / dotn;
+	t = dot_product(sub_vec(r->origin, plane->origin), plane->vecteur) / dotn;
 	if (t < 0.0001)
 		return (hit);
 	hit.hit = true;
