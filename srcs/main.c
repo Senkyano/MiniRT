@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/11 14:49:51 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/16 17:45:07 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 	window.img_width = WIN_WIDTH;
 	window.img_height = WIN_HEIGHT;
 	org_lst(&window.scene);
+	display_infobj(window.scene.objs);
 	printf(YL"RayTracing Calculation ...\n"RST);
 	creat_window(&window);
 	printf(PUR"Clearing memory...\n"RST);

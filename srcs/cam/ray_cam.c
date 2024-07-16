@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/12 12:59:20 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/16 20:00:48 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,55 @@ void	cam_ray(t_window *window)
 	}
 }
 
-t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window)
+t_objs	*closest_hit(t_objs *obj, t_ray *r, t_in_hit *info_hit)
 {
-	double	a;
-	t_objs	*tmp;
+	t_objs		*tmp;
+	t_objs		*closest_obj;
+	double		t_dst;
+	t_in_hit	tmp_info_hit;
 
-	tmp = objs;
-	(void)window;
+	tmp = obj;
+	lib_memset(&tmp_info_hit, 0, sizeof(t_in_hit));
+	closest_obj = NULL;
+	t_dst = INFINITY;
+	tmp_info_hit.dst = INFINITY;
 	while (tmp)
 	{
 		if (tmp->type == SPHERE)
 		{
-			a = hit_sphere(tmp, &r);
-			if (a > 0.0)
-				return (tmp->color);
+			tmp_info_hit = hit_sphere(tmp, r);
+			if (tmp_info_hit.hit && tmp_info_hit.dst < t_dst)
+			{
+				*info_hit = tmp_info_hit;
+				t_dst = tmp_info_hit.dst;
+				closest_obj = tmp;
+			}
 		}
 		if (tmp->type == PLANE)
 		{
-			a = hit_plane(tmp, &r);
-			if (a > 0.0)
-				return (tmp->color);
+			tmp_info_hit = hit_plane(tmp, r);
+			if (tmp_info_hit.hit && tmp_info_hit.dst < t_dst)
+			{
+				*info_hit = tmp_info_hit;
+				t_dst = tmp_info_hit.dst;
+				closest_obj = tmp;
+			}
 		}
 		tmp = tmp->next;
 	}
+	return (closest_obj);
+}
+
+t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window)
+{
+	t_in_hit	a;
+	t_objs	*tmp;
+
+	(void)window;
+	lib_memset(&a, 0, sizeof(t_in_hit));
+	tmp = closest_hit(objs, &r, &a);
+	if (a.hit)
+		return (tmp->color);
 	return ((t_rgb){0, 0, 0});
 }
 
@@ -87,7 +113,7 @@ t_ray	build_camray(t_objs *o_cam, double x, double y)
 	ray.origin = o_cam->origin;
 	cam.origin = o_cam->origin;
 	cam.vec_forward = normalize(o_cam->vecteur);
-	cam.vec_right = cross_product(cam.vec_forward, (t_coord){0, 1, 0});
+	cam.vec_right = cross_product((t_coord){0, 1, 0}, cam.vec_forward);
 	cam.vec_up = cross_product(cam.vec_right, cam.vec_forward);
 	cam.dir.x = (2.0 * (x + 0.5) / (double)WIN_WIDTH - 1)
 		* tan(o_cam->fov / 2 * PI / 180.0)
@@ -96,7 +122,6 @@ t_ray	build_camray(t_objs *o_cam, double x, double y)
 		* tan(o_cam->fov / 2 * PI / 180.0);
 	cam.dir.z = FOCAL_DIST;
 	cam.dir = cam_to_world(&cam, cam.dir);
-	cam.dir = normalize(cam.dir);
-	ray.dir = cam.dir;
+	ray.dir = normalize(cam.dir);
 	return (ray);
 }

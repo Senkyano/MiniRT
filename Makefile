@@ -103,7 +103,7 @@ all : $(NAME)
 	@echo "$(C_G)Compilation $(NAME) STATUS [OK]$(RESET)"
 
 $(NAME) : $(LIB) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(OBJ_EQ) $(MLX)
-	@$(CC) -lm $(FLAGS) $(MLX_LIBS) -o $(NAME) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(OBJ_EQ) $(MLX) $(MLX_LIBS) $(EXTENSION)
+	@$(CC) $(FLAGS) $(MLX_LIBS) -o $(NAME) $(OBJ) $(OBJ_INIT) $(OBJ_CAM) $(OBJ_EQ) $(MLX) $(MLX_LIBS) $(EXTENSION) -lm
 
 $(MLX) :
 	@make -C $(MLX_DIR) --silent
