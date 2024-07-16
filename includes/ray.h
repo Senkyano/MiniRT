@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:39:31 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/16 20:34:58 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/16 22:46:53 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ typedef struct s_info_hit
 typedef struct s_eq
 {
 	double	t0;
+	double	a;
+	double	b;
+	double	c;
 	double	t1;
 	double	discriminant;
 }	t_eq;
