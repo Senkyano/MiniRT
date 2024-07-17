@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/16 22:59:13 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/17 22:18:48 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ t_in_hit	hit_sphere(t_objs *sphere, t_ray *r)
 	eq.b = 2 * dot_product(sub_vec(r->origin, sphere->origin), r->dir);
 	eq.c = dot_product(sub_vec(r->origin, sphere->origin), \
 	sub_vec(r->origin, sphere->origin)) - (sphere->radius * sphere->radius);
-	eq.discriminant = eq.b * eq.b - 4 * eq.a * eq.c;
-	if (eq.discriminant < 0)
+	eq.discriminant = sqr_nbr(eq.b) - 4 * eq.a * eq.c;
+	if (eq.discriminant < 0.0)
 		return (hit);
 	eq.t0 = (-eq.b + sqrt(eq.discriminant)) / (2 * eq.a);
 	eq.t1 = (-eq.b - sqrt(eq.discriminant)) / (2 * eq.a);
 	if (eq.t0 < 0.0001 && eq.t1 < 0.0001)
 		return (hit);
 	hit.hit = true;
-	if (eq.t0 < 0.0001 || eq.t0 > eq.t1)
+	if (eq.t0 < 0.0001 || eq.t0 < RAY_T_MAX)
 		hit.dst = eq.t1;
-	else
+	else if (eq.t1 < 0.0001 || eq.t1 < RAY_T_MAX)
 		hit.dst = eq.t0;
 	hit.p = point_of_ray(*r, hit.dst);
 	hit.normal = unit_vector(sub_vec(hit.p, sphere->origin));
@@ -51,7 +51,7 @@ t_in_hit	hit_plane(t_objs *plane, t_ray *r)
 	dotn = dot_product(plane->vecteur, r->dir);
 	if (dotn == 0.0)
 		return (hit);
-	t = dot_product(sub_vec(r->origin, plane->origin), plane->vecteur) / dotn;
+	t = dot_product(sub_vec(plane->origin, r->origin), plane->vecteur) / dotn;
 	if (t < 0.0001)
 		return (hit);
 	hit.hit = true;

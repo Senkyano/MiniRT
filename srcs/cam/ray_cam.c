@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/16 22:37:28 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/17 22:11:47 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,11 +113,11 @@ t_ray	build_camray(t_objs *o_cam, double x, double y)
 	ray.origin = o_cam->origin;
 	cam.origin = o_cam->origin;
 	cam.vec_forward = normalize(o_cam->vecteur);
-	cam.vec_right = cross_product((t_coord){0, 1, 0}, cam.vec_forward);
+	cam.vec_right = cross_product(cam.vec_forward, (t_coord){0, 1, 0});
 	cam.vec_up = cross_product(cam.vec_right, cam.vec_forward);
 	cam.dir.x = (2.0 * (x + 0.5) / (double)WIN_WIDTH - 1)
 		* tan(o_cam->fov / 2 * PI / 180.0)
-		* ((double)((double)WIN_WIDTH / (double)WIN_HEIGHT));
+		* (((double)WIN_WIDTH / (double)WIN_HEIGHT));
 	cam.dir.y = (1.0 - 2.0 * (y + 0.5) / (double)WIN_HEIGHT)
 		* tan(o_cam->fov / 2 * PI / 180.0);
 	cam.dir.z = FOCAL_DIST;
