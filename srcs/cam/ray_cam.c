@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/17 22:11:47 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/22 16:44:30 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,37 @@ t_objs	*closest_hit(t_objs *obj, t_ray *r, t_in_hit *info_hit)
 	return (closest_obj);
 }
 
+t_rgb	add_ambiant(t_rgb color_objs, t_objs *ambiant)
+{
+	t_rgb	final;
+	double	ratio;
+
+	if (ambiant->ratio == 0)
+		ratio = 0;
+	else if (ambiant->ratio > 1)
+		ratio = 1;
+	else
+		ratio = ambiant->ratio;
+	final.r = ((color_objs.r * ambiant->color.r) / 255) * ratio;
+	final.g = ((color_objs.g * ambiant->color.g) / 255) * ratio;
+	final.b = ((color_objs.b * ambiant->color.b) / 255) * ratio;
+	return (final);
+}
+
 t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window)
 {
 	t_in_hit	a;
-	t_objs	*tmp;
+	t_rgb		color_px;
+	t_objs		*tmp;
 
 	(void)window;
 	lib_memset(&a, 0, sizeof(t_in_hit));
 	tmp = closest_hit(objs, &r, &a);
 	if (a.hit)
-		return (tmp->color);
+	{
+		color_px = add_ambiant(tmp->color, window->scene.ambiant);
+		return (color_px);
+	}
 	return ((t_rgb){0, 0, 0});
 }
 
@@ -125,3 +146,4 @@ t_ray	build_camray(t_objs *o_cam, double x, double y)
 	ray.dir = normalize(cam.dir);
 	return (ray);
 }
+
