@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:35:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/22 13:53:07 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/22 17:12:32 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ t_coord	point_of_ray(t_ray ray, double t)
 	return (inter);
 }
 
-t_coord unit_vector(t_coord v)
+t_coord	unit_vector(t_coord v)
 {
-    double length;
-    t_coord result;
+	double	length;
+	t_coord	result;
 
 	length = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
 	result = (t_coord){v.x / length, v.y / length, v.z / length};
-    return (result);
+	return (result);
 }
 
 // int	intersection(t_ray *r, t_objs *obj, double *t)

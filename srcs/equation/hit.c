@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/17 22:18:48 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/22 17:12:49 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_in_hit	hit_sphere(t_objs *sphere, t_ray *r)
 {
 	t_eq		eq;
 	t_in_hit	hit;
-	
+
 	lib_memset(&hit, 0, sizeof(t_in_hit));
 	hit.dst = INFINITY;
 	eq.a = dot_product(r->dir, r->dir);
