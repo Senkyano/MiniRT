@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/22 16:44:30 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/26 12:59:58 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,16 @@ t_objs	*closest_hit(t_objs *obj, t_ray *r, t_in_hit *info_hit)
 		if (tmp->type == PLANE)
 		{
 			tmp_info_hit = hit_plane(tmp, r);
+			if (tmp_info_hit.hit && tmp_info_hit.dst < t_dst)
+			{
+				*info_hit = tmp_info_hit;
+				t_dst = tmp_info_hit.dst;
+				closest_obj = tmp;
+			}
+		}
+		if (tmp->type == CYLINDER)
+		{
+			tmp_info_hit = hit_cylinder(tmp, r);
 			if (tmp_info_hit.hit && tmp_info_hit.dst < t_dst)
 			{
 				*info_hit = tmp_info_hit;
