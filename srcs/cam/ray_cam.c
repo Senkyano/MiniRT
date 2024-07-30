@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/26 12:59:58 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/30 14:35:45 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,13 @@ t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window)
 	if (a.hit)
 	{
 		color_px = add_ambiant(tmp->color, window->scene.ambiant);
+		// Pour obtenir la couleur de l'objet final, on devras ajouter la couleur de la lumiere
+		//   1er etape on as deja la coordonner de la lumiere
+		//   On doit obtenir 4 vecteur les 4eme n'est pas necessaire car on as pas besoin de la refraction
+		//        - un vecteur de la lumiere a l'objet
+		//        - un vecteur de l'objet a la camera
+		//		  - un vecteur de la normale de l'objet
+		
 		return (color_px);
 	}
 	return ((t_rgb){0, 0, 0});

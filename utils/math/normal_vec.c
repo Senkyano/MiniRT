@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:08:39 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/12 11:30:22 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/29 15:42:21 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ t_coord	mult_vec(t_coord vec1, double d)
 {
 	t_coord	mult;
 
-	mult.x = vec1.x * d;
-	mult.y = vec1.y * d;
-	mult.z = vec1.z * d;
+	mult.x = (double)(vec1.x * d);
+	mult.y = (double)(vec1.y * d);
+	mult.z = (double)(vec1.z * d);
 	return (mult);
 }

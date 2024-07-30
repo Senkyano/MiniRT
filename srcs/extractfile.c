@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:33:39 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/15 15:56:48 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/29 14:56:51 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,11 @@ bool	analysis_file(t_scene *scene, t_file *fd_lines)
 			return (clear_fd(fd_lines), false);
 		obj = init_obj(scene, split);
 		if (!obj)
+		{
+			printf_error(RED"Error\n%s\n"RST, tmp->line);
 			return (clear_fd(fd_lines), clear_objs(&scene->objs), \
 			lib_free_split(split), false);
+		}
 		add_l_objs(&scene->objs, obj);
 		lib_free_split(split);
 		tmp = tmp->next;

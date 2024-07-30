@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 16:58:45 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/24 10:27:33 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/29 14:53:47 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_objs	*init_obj(t_scene *scene, char **split)
 	i = -1;
 	while (++i < 6)
 	{
-		if (scene->obj_can[i] == split[0][0])
+		if (scene->obj_can[i] == split[0][0] && (str_len(split[0]) == 2 || str_len(split[0]) == 1))
 		{
 			if (!scene->f[i](obj, split, scene))
 				return (free(obj), NULL);
