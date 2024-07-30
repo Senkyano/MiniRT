@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/30 14:35:45 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/07/30 14:59:04 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,6 @@ t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window)
 		//        - un vecteur de la lumiere a l'objet
 		//        - un vecteur de l'objet a la camera
 		//		  - un vecteur de la normale de l'objet
-		
 		return (color_px);
 	}
 	return ((t_rgb){0, 0, 0});
