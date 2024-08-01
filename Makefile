@@ -84,7 +84,8 @@ OBJ_INIT = $(patsubst %.c, $(OBJS)/%.o, $(INIT_C))
 
 CAM_C = ray_cam.c \
 		clear_minirt.c \
-		color.c
+		color.c \
+		right_eq.c
 
 SRC_CAM = $(addprefix $(SRCS)/cam/, $(CAM_C))
 OBJ_CAM = $(patsubst %.c, $(OBJS)/%.o, $(CAM_C))

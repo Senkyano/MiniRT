@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/30 14:59:04 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/01 14:05:20 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,65 +45,17 @@ t_objs	*closest_hit(t_objs *obj, t_ray *r, t_in_hit *info_hit)
 	t_objs		*tmp;
 	t_objs		*closest_obj;
 	double		t_dst;
-	t_in_hit	tmp_info_hit;
 
 	tmp = obj;
-	lib_memset(&tmp_info_hit, 0, sizeof(t_in_hit));
 	closest_obj = NULL;
 	t_dst = INFINITY;
-	tmp_info_hit.dst = INFINITY;
 	while (tmp)
 	{
-		if (tmp->type == SPHERE)
-		{
-			tmp_info_hit = hit_sphere(tmp, r);
-			if (tmp_info_hit.hit && tmp_info_hit.dst < t_dst)
-			{
-				*info_hit = tmp_info_hit;
-				t_dst = tmp_info_hit.dst;
-				closest_obj = tmp;
-			}
-		}
-		if (tmp->type == PLANE)
-		{
-			tmp_info_hit = hit_plane(tmp, r);
-			if (tmp_info_hit.hit && tmp_info_hit.dst < t_dst)
-			{
-				*info_hit = tmp_info_hit;
-				t_dst = tmp_info_hit.dst;
-				closest_obj = tmp;
-			}
-		}
-		if (tmp->type == CYLINDER)
-		{
-			tmp_info_hit = hit_cylinder(tmp, r);
-			if (tmp_info_hit.hit && tmp_info_hit.dst < t_dst)
-			{
-				*info_hit = tmp_info_hit;
-				t_dst = tmp_info_hit.dst;
-				closest_obj = tmp;
-			}
-		}
+		if (hit_something(tmp, r, info_hit, &t_dst))
+			closest_obj = tmp;
 		tmp = tmp->next;
 	}
 	return (closest_obj);
-}
-
-t_rgb	add_ambiant(t_rgb color_objs, t_objs *ambiant)
-{
-	t_rgb	final;
-	double	ratio;
-
-	if (ambiant->ratio == 0)
-		ratio = 0;
-	else if (ambiant->ratio > 1)
-		ratio = 1;
-	else
-		ratio = ambiant->ratio;
-	final.r = ((color_objs.r * ambiant->color.r) / 255) * ratio;
-	final.g = ((color_objs.g * ambiant->color.g) / 255) * ratio;
-	final.b = ((color_objs.b * ambiant->color.b) / 255) * ratio;
-	return (final);
 }
 
 t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window)
@@ -118,16 +70,26 @@ t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window)
 	if (a.hit)
 	{
 		color_px = add_ambiant(tmp->color, window->scene.ambiant);
-		// Pour obtenir la couleur de l'objet final, on devras ajouter la couleur de la lumiere
-		//   1er etape on as deja la coordonner de la lumiere
-		//   On doit obtenir 4 vecteur les 4eme n'est pas necessaire car on as pas besoin de la refraction
-		//        - un vecteur de la lumiere a l'objet
-		//        - un vecteur de l'objet a la camera
-		//		  - un vecteur de la normale de l'objet
 		return (color_px);
 	}
 	return ((t_rgb){0, 0, 0});
 }
+
+// dans ray_color (fonction juste au-dessus)
+// color_px = add_ambiant(tmp->color, window->scene.ambiant);
+	// printf("point of hit : %f %f %f\n", a.p.x, a.p.y, a.p.z);
+	// printf("normal of hit : %f %f %f\n", a.normal.x, a.normal.y, a.normal.z);
+	// Pour obtenir la couleur de l'objet final, on devras ajouter la couleur 
+//de la lumiere
+	//   1er etape on as deja la coordonner de la lumiere
+	//   On doit obtenir 4 vecteur les 4eme n'est pas necessaire car on as pas
+//besoin de la refraction
+	//			(dans le hit nous avons deja la normale et le point de la ou 
+//se trouve le hit)
+	//			(j'ai la position de la lumiere)
+	//        - un vecteur de la lumiere a l'objet
+	//        - un vecteur de l'objet a la camera
+	//		  - un vecteur de la normale de l'objet
 
 t_coord	cam_to_world(t_cam *cam, t_coord dir)
 {
@@ -162,4 +124,3 @@ t_ray	build_camray(t_objs *o_cam, double x, double y)
 	ray.dir = normalize(cam.dir);
 	return (ray);
 }
-

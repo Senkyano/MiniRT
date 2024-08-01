@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:59:05 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/11 13:08:41 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/01 13:38:45 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ t_coord	sub_vec(t_coord vec1, t_coord vec2);
 t_coord	add_vec(t_coord vec1, t_coord vec2);
 t_coord	mult_vec(t_coord vec1, double d);
 t_coord	normalize(t_coord vec);
+t_coord	invert_vec(t_coord vec);
 
 #endif

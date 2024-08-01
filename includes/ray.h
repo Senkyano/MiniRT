@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:39:31 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/26 12:59:22 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/01 14:01:39 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ t_in_hit	hit_sphere(t_objs *sphere, t_ray *r);
 t_in_hit	hit_plane(t_objs *plane, t_ray *r);
 t_coord		unit_vector(t_coord v);
 t_in_hit 	hit_cylinder(t_objs *cylinder, t_ray *r);
+bool		hit_something(t_objs *objs, t_ray *r, t_in_hit *hit, double *dst);
+t_rgb		add_ambiant(t_rgb color_objs, t_objs *ambiant);
 
 #endif
