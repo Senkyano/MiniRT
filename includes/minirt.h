@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/16 11:44:46 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/01 16:41:46 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,15 @@
 # define FOCAL_DIST 0.5
 # define WIN_WIDTH 1280
 # define WIN_HEIGHT 720
-# define ASPECT_RATIO (WIN_WIDTH / WIN_HEIGHT)
+# define ASPECT_RATIO 1.777777777777778
+
+typedef struct s_info_obj
+{
+	t_rgb	c_ambiant;
+	t_rgb	c_diffuse;
+	bool	diffuse;
+	t_rgb	final_c;
+}	t_info_obj;
 
 typedef struct s_objs
 {
@@ -64,7 +72,7 @@ typedef struct s_objs
 	struct s_objs	*prev;
 }	t_objs;
 
-typedef struct	s_cam
+typedef struct s_cam
 {
 	t_coord		origin;
 	t_coord		dir;
@@ -104,7 +112,7 @@ typedef struct s_hit
 {
 	t_rgb	*color;
 	double	f;
-} t_hit;
+}	t_hit;
 
 // color
 

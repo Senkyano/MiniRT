@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 12:48:27 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/01 14:01:33 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/01 16:24:13 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ typedef struct s_rgb
 
 bool	init_color(t_rgb *color, char *color_str);
 int		color_pix(t_rgb	color);
+t_rgb	mult_color_scalar(t_rgb color, double scalar);
+t_rgb	add_color(t_rgb color1, t_rgb color2);
 
 #endif

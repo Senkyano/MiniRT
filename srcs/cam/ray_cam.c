@@ -6,16 +6,13 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/01 14:05:20 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/01 16:31:19 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "ray.h"
 #include <math.h>
-
-/* element qui defini si on touche un obj ou pas raytrace + intersection 
-(inter choisis le bonne equation a faire)*/
 
 t_ray	build_camray(t_objs *o_cam, double x, double y);
 t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window);
@@ -61,35 +58,20 @@ t_objs	*closest_hit(t_objs *obj, t_ray *r, t_in_hit *info_hit)
 t_rgb	ray_color(t_ray r, t_objs *objs, t_window *window)
 {
 	t_in_hit	a;
-	t_rgb		color_px;
+	t_info_obj	obj_info_c;
 	t_objs		*tmp;
 
-	(void)window;
 	lib_memset(&a, 0, sizeof(t_in_hit));
+	lib_memset(&obj_info_c, 0, sizeof(t_info_obj));
 	tmp = closest_hit(objs, &r, &a);
 	if (a.hit)
 	{
-		color_px = add_ambiant(tmp->color, window->scene.ambiant);
-		return (color_px);
+		obj_info_c.c_ambiant = add_ambiant(tmp->color, window->scene.ambiant);
+		add_rlight(&obj_info_c, &a, window->scene.light, objs);
+		return (obj_info_c.final_c);
 	}
 	return ((t_rgb){0, 0, 0});
 }
-
-// dans ray_color (fonction juste au-dessus)
-// color_px = add_ambiant(tmp->color, window->scene.ambiant);
-	// printf("point of hit : %f %f %f\n", a.p.x, a.p.y, a.p.z);
-	// printf("normal of hit : %f %f %f\n", a.normal.x, a.normal.y, a.normal.z);
-	// Pour obtenir la couleur de l'objet final, on devras ajouter la couleur 
-//de la lumiere
-	//   1er etape on as deja la coordonner de la lumiere
-	//   On doit obtenir 4 vecteur les 4eme n'est pas necessaire car on as pas
-//besoin de la refraction
-	//			(dans le hit nous avons deja la normale et le point de la ou 
-//se trouve le hit)
-	//			(j'ai la position de la lumiere)
-	//        - un vecteur de la lumiere a l'objet
-	//        - un vecteur de l'objet a la camera
-	//		  - un vecteur de la normale de l'objet
 
 t_coord	cam_to_world(t_cam *cam, t_coord dir)
 {
