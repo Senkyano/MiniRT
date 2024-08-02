@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 13:46:54 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/01 16:47:04 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/02 15:46:20 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ bool	hit_something(t_objs *objs, t_ray *r, t_in_hit *hit, double *dst)
 		tmp_hit = hit_sphere(objs, r);
 	else if (objs->type == PLANE)
 		tmp_hit = hit_plane(objs, r);
+	else if (objs->type == CYLINDER)
+		tmp_hit = hit_cylinder(objs, r);
 	if (tmp_hit.hit && tmp_hit.dst < (*dst))
 	{
 		*hit = tmp_hit;
@@ -63,12 +65,11 @@ t_objs *light, t_objs *objs)
 	shadow_ray.dir = light_dir;
 	lib_memset(&shadow_hit, 0, sizeof(t_in_hit));
 	shadow_obj = closest_hit(objs, &shadow_ray, &shadow_hit);
-	if (shadow_obj)
+	if (shadow_obj && shadow_hit.dst < vec_length(sub_vec(light->origin, a->p)))
 	{
 		obj_info->final_c = obj_info->c_ambiant;
 		return ;
 	}
-	obj_info->diffuse = true;
 	intensity = dot_product(a->normal, light_dir);
 	intensity = fmax(0, intensity) * light->ratio;
 	obj_info->c_diffuse = add_color(obj_info->c_ambiant, \
