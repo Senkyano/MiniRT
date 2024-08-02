@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/02 16:11:30 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/02 17:14:15 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,31 +66,29 @@ t_coord	inv_vec(t_coord v)
 	return ((t_coord){-v.x, -v.y, -v.z});
 }
 
-// t_in_hit	circle_plane(t_objs *cir, t_ray *r)
-// {
-	
-// }
+void	res_cyl(t_objs *cyl, t_ray *r, t_eq *eq)
+{
+	eq->r_cross_cyl = sub_vec(r->origin, cyl->origin);
+	eq->ocrossd = cross_product(r->dir, cyl->vecteur);
+	eq->a = dot_product(eq->ocrossd, eq->ocrossd);
+	eq->b = 2 * dot_product(eq->ocrossd, cross_product(eq->r_cross_cyl, cyl->vecteur));
+	eq->c = dot_product(cross_product(eq->r_cross_cyl, cyl->vecteur), \
+	cross_product(eq->r_cross_cyl, cyl->vecteur)) - sqr_nbr(cyl->radius);
+	eq->discriminant = sqr_nbr(eq->b) - 4 * eq->a * eq->c;
+	eq->t0 = (-eq->b - sqrt(eq->discriminant)) / (2 * eq->a);
+	eq->t1 = (-eq->b + sqrt(eq->discriminant)) / (2 * eq->a);
+}
 
 t_in_hit	hit_cylinder(t_objs *cyl, t_ray *r)
 {
 	t_in_hit	hit;
 	t_eq		eq;
-	t_coord		r_cross_cyl;
-	t_coord		ocrossd;
 	double		heigth;
 
 	lib_memset(&hit, 0, sizeof(t_in_hit));
-	r_cross_cyl = sub_vec(r->origin, cyl->origin);
-	ocrossd = cross_product(r->dir, cyl->vecteur);
-	eq.a = dot_product(ocrossd, ocrossd);
-	eq.b = 2 * dot_product(ocrossd, cross_product(r_cross_cyl, cyl->vecteur));
-	eq.c = dot_product(cross_product(r_cross_cyl, cyl->vecteur), \
-	cross_product(r_cross_cyl, cyl->vecteur)) - sqr_nbr(cyl->radius);
-	eq.discriminant = sqr_nbr(eq.b) - 4 * eq.a * eq.c;
+	res_cyl(cyl, r, &eq);
 	if (eq.discriminant < 0.0)
 		return (hit);
-	eq.t0 = (-eq.b - sqrt(eq.discriminant)) / (2 * eq.a);
-	eq.t1 = (-eq.b + sqrt(eq.discriminant)) / (2 * eq.a);
 	if (eq.t0 > 0.0001 && eq.t0 < RAY_T_MAX)
 		hit.dst = eq.t0;
 	else if (eq.t1 > 0.0001 && eq.t1 < RAY_T_MAX)
@@ -100,7 +98,7 @@ t_in_hit	hit_cylinder(t_objs *cyl, t_ray *r)
 	hit.p = point_of_ray(*r, hit.dst);
 	heigth = dot_product(sub_vec(hit.p, cyl->origin), cyl->vecteur);
 	if (heigth <= 0 || heigth >= cyl->height)
-		return (hit);
+		return (hit/*ajout d'une fonction pour savoir si il touche un plane circulaire*/);
 	hit.hit = true;
 	hit.normal = normalize(sub_vec(sub_vec(hit.p, cyl->origin), \
 	mult_vec(cyl->vecteur, heigth)));

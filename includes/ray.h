@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:39:31 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/02 13:33:30 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/02 17:12:13 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@ typedef struct s_info_hit
 
 typedef struct s_eq
 {
-	double	t0;
-	double	a;
-	double	b;
-	double	c;
-	double	t1;
-	double	discriminant;
+	double		t0;
+	double		a;
+	double		b;
+	double		c;
+	double		t1;
+	double		discriminant;
+	t_coord		r_cross_cyl;
+	t_coord		ocrossd;
 }	t_eq;
 
 typedef struct s_objs		t_objs;
