@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/03 02:23:19 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/03 02:36:54 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ t_in_hit	hit_cylinder(t_objs *objs, t_ray *r)
 	if (tmp.hit && distance(tmp.p, add_vec(objs->origin, mult_vec(objs->vecteur, objs->height))) <= objs->radius && hit.dst > tmp.dst)
 		hit = tmp;
 	// tmp = hit_infite_cylinder(objs, r);
-	// if (tmp.hit && distance(tmp.p, objs->origin) <= objs->height / 2 && hit.dst > tmp.dst)
+	// if (tmp.hit && distance(tmp.p, objs->origin) <= objs->height && hit.dst > tmp.dst)
 	// 	hit = tmp;
 	return (hit);
 }
