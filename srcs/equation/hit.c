@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/03 02:36:54 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/03 14:04:46 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_in_hit	hit_sphere(t_objs *sphere, t_ray *r)
 	t_in_hit	hit;
 
 	lib_memset(&hit, 0, sizeof(t_in_hit));
+	hit.dst = INFINITY;
 	eq.a = dot_product(r->dir, r->dir);
 	eq.b = 2 * dot_product(sub_vec(r->origin, sphere->origin), r->dir);
 	eq.c = dot_product(sub_vec(r->origin, sphere->origin), \
@@ -48,6 +49,7 @@ t_in_hit	hit_plane(t_objs *plane, t_ray *r)
 	t_in_hit	hit;
 
 	lib_memset(&hit, 0, sizeof(t_in_hit));
+	hit.dst = INFINITY;
 	dotn = dot_product(plane->vecteur, r->dir);
 	if (dotn == 0.0)
 		return (hit);
