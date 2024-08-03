@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 14:28:29 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/16 22:17:56 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/02 20:25:15 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,9 @@ bool	init_coord(t_coord *coord, char *coord_str)
 	coord->y = lib_atof(coord_split[1]);
 	coord->z = lib_atof(coord_split[2]);
 	return (lib_free_split(coord_split), true);
+}
+
+t_coord	inv_vec(t_coord v)
+{
+	return ((t_coord){-v.x, -v.y, -v.z});
 }

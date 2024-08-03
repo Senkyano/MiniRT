@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:39:31 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/02 17:12:13 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/03 02:02:17 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ typedef struct s_eq
 	double		c;
 	double		t1;
 	double		discriminant;
-	t_coord		r_cross_cyl;
-	t_coord		ocrossd;
+	t_coord		u;
+	t_coord		v;
 }	t_eq;
 
 typedef struct s_objs		t_objs;
@@ -54,8 +54,7 @@ t_coord		inv_vec(t_coord v);
 t_coord		point_of_ray(t_ray ray, double t);
 t_in_hit	hit_sphere(t_objs *sphere, t_ray *r);
 t_in_hit	hit_plane(t_objs *plane, t_ray *r);
-t_in_hit	hit_cylinder(t_objs *cyl, t_ray *r);
-t_in_hit	hit_cylinder_bis(t_objs *cyl, t_ray *r);
+t_in_hit	hit_cylinder(t_objs *objs, t_ray *r);
 bool		hit_something(t_objs *objs, t_ray *r, t_in_hit *hit, double *dst);
 t_objs		*closest_hit(t_objs *obj, t_ray *r, t_in_hit *info_hit);
 t_rgb		add_ambiant(t_rgb color_objs, t_objs *ambiant);
