@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:05:40 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/01 16:41:46 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/04 21:42:51 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@
 # define FOCAL_DIST 0.5
 # define WIN_WIDTH 1280
 # define WIN_HEIGHT 720
-# define ASPECT_RATIO 1.777777777777778
 
 typedef struct s_info_obj
 {
@@ -141,6 +140,7 @@ void	*init_light(t_objs *obj, char **split, t_scene *scene);
 
 //diaplay
 void	display_infobj(t_objs *objs);
+void	display_cylinder(t_objs *objs);
 void	org_nearest(t_scene *scene);
 void	display_cam(t_objs *objs);
 

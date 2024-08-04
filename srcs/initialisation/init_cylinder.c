@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:49:23 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/16 17:49:02 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/04 21:25:40 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*init_cylinder(t_objs *obj, char **split, t_scene *scene)
 		printf_error(RED"Incorrect type of arguments for cylinder radius\n"RST);
 		return (NULL);
 	}
-	obj->radius = (double)(lib_atof(split[3]) / 2);
+	obj->radius = (lib_atof(split[3]) / 2.0);
 	obj->height = lib_atof(split[4]);
 	if (!init_color(&obj->color, split[5]))
 		return (NULL);

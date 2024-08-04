@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:31:43 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/08 12:33:07 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/05 00:39:05 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 double	sqr_nbr(double nbr)
 {
-	return (nbr * nbr);
+	return ((double)(nbr * nbr));
 }
