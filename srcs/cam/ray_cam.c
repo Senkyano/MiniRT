@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 10:10:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/02 15:00:11 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/05 13:45:25 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ t_coord	cam_to_world(t_cam *cam, t_coord dir)
 {
 	t_coord	new_dir;
 
-	new_dir.x = cam->vec_right.x * dir.x + cam->vec_up.x
-		* dir.y + cam->vec_forward.x * dir.z;
-	new_dir.y = cam->vec_right.y * dir.x + cam->vec_up.y
-		* dir.y + cam->vec_forward.y * dir.z;
-	new_dir.z = cam->vec_right.z * dir.x + cam->vec_up.z
-		* dir.y + cam->vec_forward.z * dir.z;
+	new_dir.x = cam->vec_right.x * dir.x
+		+ cam->vec_up.x * dir.y + cam->vec_forward.x * dir.z;
+	new_dir.y = cam->vec_right.y * dir.x
+		+ cam->vec_up.y * dir.y + cam->vec_forward.y * dir.z;
+	new_dir.z = cam->vec_right.z * dir.x
+		+ cam->vec_up.z * dir.y + cam->vec_forward.z * dir.z;
 	return (new_dir);
 }
 
