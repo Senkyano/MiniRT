@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/05 15:53:55 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/06 12:45:56 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,13 @@ double	distance(t_coord p1, t_coord p2)
 void hit_fini_cylinder(t_objs *objs, t_ray *r, t_in_hit *tmp_hit)
 {
 	t_eq	eq;
-	// double height_projection;
+	double height_projection;
 
 	lib_memset(tmp_hit, 0, sizeof(t_in_hit));
 	tmp_hit->dst = INFINITY;
+	printf("r->dir : x = %f, y = %f, z = %f\n", r->dir.x, r->dir.y, r->dir.z);
 	eq.u = cross_product(r->dir, objs->vecteur);
+	// printf("eq.u.x = %f, eq.u.y = %f, eq.u.z = %f\n", eq.u.x, eq.u.y, eq.u.z);
 	eq.v = sub_vec(r->origin, objs->origin);
 	eq.v = cross_product(eq.v, objs->vecteur);
 	eq.a = dot_product(eq.u, eq.u);
@@ -99,12 +101,12 @@ void hit_fini_cylinder(t_objs *objs, t_ray *r, t_in_hit *tmp_hit)
 	tmp_hit->p = point_of_ray(*r, tmp_hit->dst);
 	tmp_hit->normal = normalize(sub_vec(sub_vec(tmp_hit->p, objs->origin), \
 	mult_vec(objs->vecteur, dot_product(sub_vec(tmp_hit->p, objs->origin), objs->vecteur))));
-	// height_projection = dot_product(sub_vec(tmp_hit->p, objs->origin), objs->vecteur);
-	// if (height_projection <= 0 || height_projection >= objs->height)
-	// {
-	// 	tmp_hit->hit = false;
-	// 	tmp_hit->dst = INFINITY;
-	// }
+	height_projection = dot_product(sub_vec(tmp_hit->p, objs->origin), objs->vecteur);
+	if (height_projection <= 0 || height_projection >= objs->height)
+	{
+		tmp_hit->hit = false;
+		tmp_hit->dst = INFINITY;
+	}
 	if (dot_product(tmp_hit->normal, r->dir) > 0)
 		tmp_hit->normal = inv_vec(tmp_hit->normal);
 }
