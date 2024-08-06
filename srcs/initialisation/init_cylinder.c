@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 16:49:23 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/04 21:25:40 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/06 16:03:18 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	*init_cylinder(t_objs *obj, char **split, t_scene *scene)
 		return (NULL);
 	if (!init_coord(&obj->vecteur, split[2]))
 		return (NULL);
+	obj->vecteur = normalize(obj->vecteur);
 	if (!is_numberf(split[3]) || !is_numberf(split[4]))
 	{
 		printf_error(RED"Incorrect type of arguments for cylinder radius\n"RST);

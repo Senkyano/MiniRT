@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/06 15:11:08 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/06 16:04:21 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ double	distance(t_coord p1, t_coord p2)
 // 	u = scal_x_vec(dot(vsubstract(o, lst->fig.cy.c), lst->fig.cy.nv),
 // 													lst->fig.cy.nv);
 // 	u = vsubstract(vsubstract(o, lst->fig.cy.c), u);
+
 // 	a = dot(v, v);
 // 	b = 2 * dot(v, u);
 // 	c = dot(u, u) - pow(lst->fig.cy.r, 2);
@@ -96,7 +97,12 @@ double	distance(t_coord p1, t_coord p2)
 // 	return (1);
 // }
 
-void hit_fini_cylinder(t_objs *objs, t_ray *r, t_in_hit *tmp_hit)
+// void	solve_cylinder(t_eq *eq, t_ray *r, t_objs *cyl)
+// {
+	
+// }
+
+void	hit_fini_cylinder(t_objs *objs, t_ray *r, t_in_hit *tmp_hit)
 {
 	t_eq	eq;
 	double height_projection;
