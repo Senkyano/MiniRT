@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:33:39 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/29 14:56:51 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/06 21:18:55 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,36 @@
 
 bool	analysis_file(t_scene *scene, t_file *fd_lines);
 void	sgline_supp(t_file **fd_lines);
+
+bool	primary_items(t_scene *scene)
+{
+	bool	error;
+	
+	error = false;
+	if (!scene->camera)
+	{
+		printf_error(RED"Error\nNo camera\n"RST);
+		error = true;
+	}
+	if (!scene->ambiant)
+	{
+		printf_error(RED"Error\nNo ambiant\n"RST);
+		error = true;
+	}
+	if (!scene->light)
+	{
+		printf_error(RED"Error\nNo light\n"RST);
+		error = true;
+	}
+	if (!scene->objs)
+	{
+		printf_error(RED"Error\nNo objects\n"RST);
+		error = true;
+	}
+	if (error)
+		return (false);
+	return (true);
+}
 
 bool	extractfile(t_scene *scene, char *file)
 {
@@ -39,8 +69,8 @@ bool	extractfile(t_scene *scene, char *file)
 			return (free(line), clear_fd(fd_lines), close(fd), false);
 		add_line(&fd_lines, tmp);
 	}
-	if (!analysis_file(scene, fd_lines))
-		return (false);
+	if (!analysis_file(scene, fd_lines) || !fd_lines)
+		return (printf_error(RED"Empty files\n"RST), false);
 	return (true);
 }
 
@@ -55,7 +85,7 @@ bool	analysis_file(t_scene *scene, t_file *fd_lines)
 	while (tmp)
 	{
 		split = lib_split(tmp->line, " 	\n");
-		if (!split)
+		if (!split || !split[0])
 			return (clear_fd(fd_lines), false);
 		obj = init_obj(scene, split);
 		if (!obj)

@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 12:39:31 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/03 02:02:17 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 00:48:54 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ t_objs		*closest_hit(t_objs *obj, t_ray *r, t_in_hit *info_hit);
 t_rgb		add_ambiant(t_rgb color_objs, t_objs *ambiant);
 void		add_rlight(t_info_obj *obj_info, t_in_hit *a, \
 t_objs *light, t_objs *objs);
+double		distance(t_coord p1, t_coord p2);
 
 #endif

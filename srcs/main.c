@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/04 21:34:54 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/06 21:24:35 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	main(int argc, char **argv)
 	window.img_width = WIN_WIDTH;
 	window.img_height = WIN_HEIGHT;
 	org_lst(&window.scene);
-	printf(YL"RayTracing Calculation ...\n"RST);
+	if (!primary_items(&window.scene))
+		return (clear_scene(&window.scene), 1);
 	creat_window(&window);
 	printf(PUR"Clearing memory...\n"RST);
 	clear_scene(&window.scene);
@@ -54,6 +55,7 @@ void	creat_window(t_window *window)
 		printf_error(RED"Error\nmlx_new_window failed\n"RST);
 		clear_minirt(window);
 	}
+	printf(YL"RayTracing Calculation ...\n"RST);
 	mlx_hook(window->win, DestroyNotify, StructureNotifyMask, clear_minirt, \
 	window);
 	mlx_hook(window->win, KeyRelease, KeyReleaseMask, handle_key, window);
@@ -63,9 +65,12 @@ void	creat_window(t_window *window)
 
 void	clear_scene(t_scene *scene)
 {
-	free(scene->camera);
-	free(scene->light);
-	free(scene->ambiant);
+	if (scene->camera)
+		free(scene->camera);
+	if (scene->light)
+		free(scene->light);
+	if (scene->ambiant)
+		free(scene->ambiant);
 	clear_objs(&scene->objs);
 }
 
