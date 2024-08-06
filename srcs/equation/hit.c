@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/06 12:45:56 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/06 15:11:08 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,33 @@ double	distance(t_coord p1, t_coord p2)
 	sqr_nbr(p1.z - p2.z)));
 }
 
+// static int		solve_cylinder(double x[2], t_p3 o, t_p3 d, t_figures *lst)
+// {
+// 	t_p3	v;
+// 	t_p3	u;
+// 	double	a;
+// 	double	b;
+// 	double	c;
+
+// 	v = scal_x_vec(dot(d, lst->fig.cy.nv), lst->fig.cy.nv);
+// 	v = vsubstract(d, v);
+// 	u = scal_x_vec(dot(vsubstract(o, lst->fig.cy.c), lst->fig.cy.nv),
+// 													lst->fig.cy.nv);
+// 	u = vsubstract(vsubstract(o, lst->fig.cy.c), u);
+// 	a = dot(v, v);
+// 	b = 2 * dot(v, u);
+// 	c = dot(u, u) - pow(lst->fig.cy.r, 2);
+// 	x[0] = (-b + sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
+// 	x[1] = (-b - sqrt(pow(b, 2) - 4 * a * c)) / (2 * a);
+// 	if ((x[0] != x[0] && x[1] != x[1]) || (x[0] < EPSILON && x[1] < EPSILON))
+// 	{
+// 		x[0] = INFINITY;
+// 		x[1] = INFINITY;
+// 		return (0);
+// 	}
+// 	return (1);
+// }
+
 void hit_fini_cylinder(t_objs *objs, t_ray *r, t_in_hit *tmp_hit)
 {
 	t_eq	eq;
@@ -76,9 +103,7 @@ void hit_fini_cylinder(t_objs *objs, t_ray *r, t_in_hit *tmp_hit)
 
 	lib_memset(tmp_hit, 0, sizeof(t_in_hit));
 	tmp_hit->dst = INFINITY;
-	printf("r->dir : x = %f, y = %f, z = %f\n", r->dir.x, r->dir.y, r->dir.z);
 	eq.u = cross_product(r->dir, objs->vecteur);
-	// printf("eq.u.x = %f, eq.u.y = %f, eq.u.z = %f\n", eq.u.x, eq.u.y, eq.u.z);
 	eq.v = sub_vec(r->origin, objs->origin);
 	eq.v = cross_product(eq.v, objs->vecteur);
 	eq.a = dot_product(eq.u, eq.u);
