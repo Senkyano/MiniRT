@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:33:39 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/06 21:18:55 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:10:05 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,29 @@ void	sgline_supp(t_file **fd_lines);
 bool	primary_items(t_scene *scene)
 {
 	bool	error;
-	
-	error = false;
+
+	error = true;
 	if (!scene->camera)
 	{
 		printf_error(RED"Error\nNo camera\n"RST);
-		error = true;
+		error = false;
 	}
 	if (!scene->ambiant)
 	{
 		printf_error(RED"Error\nNo ambiant\n"RST);
-		error = true;
+		error = false;
 	}
 	if (!scene->light)
 	{
 		printf_error(RED"Error\nNo light\n"RST);
-		error = true;
+		error = false;
 	}
 	if (!scene->objs)
 	{
 		printf_error(RED"Error\nNo objects\n"RST);
-		error = true;
+		error = false;
 	}
-	if (error)
-		return (false);
-	return (true);
+	return (error);
 }
 
 bool	extractfile(t_scene *scene, char *file)
@@ -109,7 +107,7 @@ bool	char_no_whitespaces(char *line)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] < 7 || line[i] > 13)
+		if ((line[i] < 7 || line[i] > 13) && line[i] != 32)
 			return (true);
 		i++;
 	}
@@ -119,22 +117,24 @@ bool	char_no_whitespaces(char *line)
 void	sgline_supp(t_file **fd_lines)
 {
 	t_file	*tmp;
-	t_file	*tmp_check;
+	t_file	*next;
+	t_file	*prev;
 
+	prev = NULL;
 	tmp = *fd_lines;
 	while (tmp)
 	{
-		tmp_check = tmp;
-		tmp = tmp->next;
-		if (!char_no_whitespaces(tmp_check->line))
+		next = tmp->next;
+		if (!char_no_whitespaces(tmp->line))
 		{
-			if (!tmp_check->prev)
-				fd_lines = &tmp;
+			if (*fd_lines == tmp)
+				*fd_lines = next;
 			else
-				tmp_check->prev->next = tmp;
-			tmp->prev = tmp_check->prev;
-			free(tmp_check->line);
-			free(tmp_check);
+				prev->next = next;
+			free(tmp->line);
+			free(tmp);
 		}
+		prev = tmp;
+		tmp = next;
 	}
 }

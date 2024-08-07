@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:50:35 by rihoy             #+#    #+#             */
-/*   Updated: 2024/06/12 16:29:39 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 16:14:05 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	clear_fd(t_file *lst)
 
 	while (lst)
 	{
-		tmp = lst->next;
-		free(lst->line);
-		free(lst);
-		lst = tmp;
+		tmp = lst;
+		lst = lst->next;
+		free(tmp->line);
+		free(tmp);
 	}
 }
