@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:17:27 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/04 09:59:33 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:58:15 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	*init_light(t_objs *obj, char **split, t_scene *scene)
 {
+	if (scene->light_on)
+		return (printf_error(RED"Only one light is allowed\n"RST), NULL);
 	if (scene->light)
 	{
 		printf_error(RED"Multiple light\n"RST);

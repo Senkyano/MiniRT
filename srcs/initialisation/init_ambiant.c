@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:20:27 by rihoy             #+#    #+#             */
-/*   Updated: 2024/07/10 13:20:00 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:57:53 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	*init_ambiant(t_objs *obj, char **split, t_scene *scene)
 {
+	if (scene->ambiant_on)
+		return (printf_error(RED"Only one Ambiant is allowed\n"RST), NULL);
 	if (scene->ambiant)
 	{
 		printf_error(RED"Multiple ambiant light\n"RST);
