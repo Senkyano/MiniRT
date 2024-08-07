@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 13:11:53 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/06 21:24:35 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:45:15 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int	main(int argc, char **argv)
 	org_lst(&window.scene);
 	if (!primary_items(&window.scene))
 		return (clear_scene(&window.scene), 1);
+	printf(YL"RayTracing Calculation ...\n"RST);
 	creat_window(&window);
 	printf(PUR"Clearing memory...\n"RST);
 	clear_scene(&window.scene);
 	return (0);
 }
-
 
 void	creat_window(t_window *window)
 {
@@ -55,11 +55,11 @@ void	creat_window(t_window *window)
 		printf_error(RED"Error\nmlx_new_window failed\n"RST);
 		clear_minirt(window);
 	}
-	printf(YL"RayTracing Calculation ...\n"RST);
 	mlx_hook(window->win, DestroyNotify, StructureNotifyMask, clear_minirt, \
 	window);
 	mlx_hook(window->win, KeyRelease, KeyReleaseMask, handle_key, window);
 	cam_ray(window);
+	printf(GR"\rRayTracing Done\n"RST);
 	mlx_loop(window->mlx);
 }
 

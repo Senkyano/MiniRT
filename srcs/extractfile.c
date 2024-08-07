@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:33:39 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/07 17:10:05 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:37:36 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,7 @@ bool	extractfile(t_scene *scene, char *file)
 	fd_lines = NULL;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-	{
-		printf_error(RED"Error\nCan't open file\n"RST);
-		return (false);
-	}
+		return (printf_error(RED"Error\nCan't open file\n"RST), false);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -67,8 +64,10 @@ bool	extractfile(t_scene *scene, char *file)
 			return (free(line), clear_fd(fd_lines), close(fd), false);
 		add_line(&fd_lines, tmp);
 	}
-	if (!analysis_file(scene, fd_lines) || !fd_lines)
-		return (printf_error(RED"Empty files\n"RST), false);
+	if (!fd_lines)
+		return (printf_error(RED"Error\nEmpty file\n"RST), false);
+	if (!analysis_file(scene, fd_lines))
+		return (false);
 	return (true);
 }
 
@@ -80,6 +79,7 @@ bool	analysis_file(t_scene *scene, t_file *fd_lines)
 
 	sgline_supp(&fd_lines);
 	tmp = fd_lines;
+	(void)scene;
 	while (tmp)
 	{
 		split = lib_split(tmp->line, " 	\n");
@@ -134,7 +134,8 @@ void	sgline_supp(t_file **fd_lines)
 			free(tmp->line);
 			free(tmp);
 		}
-		prev = tmp;
+		else 
+			prev = tmp;
 		tmp = next;
 	}
 }

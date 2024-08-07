@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/06 20:48:41 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:17:24 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,31 +69,37 @@ double	distance(t_coord p1, t_coord p2)
 	sqr_nbr(p1.z - p2.z)));
 }
 
+bool	solve_equa(t_objs *objs, t_ray *r, t_eq *eq, t_in_hit *tmp_hit)
+{
+	eq->u = cross_product(r->dir, objs->vecteur);
+	eq->v = sub_vec(r->origin, objs->origin);
+	eq->v = cross_product(eq->v, objs->vecteur);
+	eq->a = dot_product(eq->u, eq->u);
+	eq->b = 2 * dot_product(eq->u, eq->v);
+	eq->c = dot_product(eq->v, eq->v) - sqr_nbr(objs->radius);
+	eq->discriminant = sqr_nbr(eq->b) - 4 * eq->a * eq->c;
+	eq->t1 = (-eq->b + sqrt(eq->discriminant)) / (2.0 * eq->a);
+	eq->t0 = (-eq->b - sqrt(eq->discriminant)) / (2.0 * eq->a);
+	if (eq->discriminant < 0.0)
+		return (false);
+	if (eq->t0 < 0.0001 && eq->t1 < 0.0001)
+		return (false);
+	if (eq->t0 > 0.0001 && eq->t0 < RAY_T_MAX)
+		tmp_hit->dst = eq->t0;
+	else if (eq->t1 > 0.0001 && eq->t1 < RAY_T_MAX)
+		tmp_hit->dst = eq->t1;
+	else
+		return (false);
+	return (true);
+}
 void	hit_fini_cylinder(t_objs *objs, t_ray *r, t_in_hit *tmp_hit)
 {
 	t_eq	eq;
-	double height_projection;
+	double	height_projection;
 
 	lib_memset(tmp_hit, 0, sizeof(t_in_hit));
 	tmp_hit->dst = INFINITY;
-	eq.u = cross_product(r->dir, objs->vecteur);
-	eq.v = sub_vec(r->origin, objs->origin);
-	eq.v = cross_product(eq.v, objs->vecteur);
-	eq.a = dot_product(eq.u, eq.u);
-	eq.b = 2 * dot_product(eq.u, eq.v);
-	eq.c = dot_product(eq.v, eq.v) - sqr_nbr(objs->radius);
-	eq.discriminant = sqr_nbr(eq.b) - 4 * eq.a * eq.c;
-	if (eq.discriminant < 0.0)
-		return;
-	eq.t1 = (-eq.b + sqrt(eq.discriminant)) / (2.0 * eq.a);
-	eq.t0 = (-eq.b - sqrt(eq.discriminant)) / (2.0 * eq.a);
-	if (eq.t0 < 0.0001 && eq.t1 < 0.0001)
-		return ;
-	if (eq.t0 > 0.0001 && eq.t0 < RAY_T_MAX)
-		tmp_hit->dst = eq.t0;
-	else if (eq.t1 > 0.0001 && eq.t1 < RAY_T_MAX)
-		tmp_hit->dst = eq.t1;
-	else
+	if (!solve_equa(objs, r, &eq, tmp_hit))
 		return ;
 	tmp_hit->hit = true;
 	tmp_hit->p = point_of_ray(*r, tmp_hit->dst);

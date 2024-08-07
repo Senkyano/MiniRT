@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 13:46:54 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/07 15:28:04 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:12:40 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ t_objs *light, t_objs *objs)
 		return ;
 	}
 	intensity = dot_product(a->normal, light_dir);
-	intensity = (fmax(0, intensity) / distance(a->p, light->origin)) * light->ratio;
+	intensity = (fmax(0, intensity)
+			/ distance(a->p, light->origin)) * light->ratio;
 	obj_info->c_diffuse = add_color(obj_info->c_ambiant, \
 	mult_color_scalar(light->color, intensity));
 	obj_info->final_c = add_color(obj_info->final_c, obj_info->c_diffuse);
