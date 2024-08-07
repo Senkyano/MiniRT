@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 11:11:12 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/07 17:17:24 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 18:02:00 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,6 @@ t_in_hit	hit_plane(t_objs *plane, t_ray *r)
 	return (hit);
 }
 
-double	distance(t_coord p1, t_coord p2)
-{
-	return (sqrt(sqr_nbr(p1.x - p2.x) + sqr_nbr(p1.y - p2.y) + \
-	sqr_nbr(p1.z - p2.z)));
-}
-
 bool	solve_equa(t_objs *objs, t_ray *r, t_eq *eq, t_in_hit *tmp_hit)
 {
 	eq->u = cross_product(r->dir, objs->vecteur);
@@ -92,6 +86,7 @@ bool	solve_equa(t_objs *objs, t_ray *r, t_eq *eq, t_in_hit *tmp_hit)
 		return (false);
 	return (true);
 }
+
 void	hit_fini_cylinder(t_objs *objs, t_ray *r, t_in_hit *tmp_hit)
 {
 	t_eq	eq;
@@ -104,8 +99,10 @@ void	hit_fini_cylinder(t_objs *objs, t_ray *r, t_in_hit *tmp_hit)
 	tmp_hit->hit = true;
 	tmp_hit->p = point_of_ray(*r, tmp_hit->dst);
 	tmp_hit->normal = normalize(sub_vec(sub_vec(tmp_hit->p, objs->origin), \
-	mult_vec(objs->vecteur, dot_product(sub_vec(tmp_hit->p, objs->origin), objs->vecteur))));
-	height_projection = dot_product(sub_vec(tmp_hit->p, objs->origin), objs->vecteur);
+	mult_vec(objs->vecteur, dot_product(sub_vec(tmp_hit->p, objs->origin), \
+	objs->vecteur))));
+	height_projection = dot_product(sub_vec(tmp_hit->p, objs->origin), \
+	objs->vecteur);
 	if (height_projection <= 0 || height_projection >= objs->height)
 	{
 		tmp_hit->hit = false;
@@ -129,7 +126,7 @@ t_in_hit	hit_cylinder(t_objs *objs, t_ray *r)
 		&& hit.dst > tmp.dst)
 		hit = tmp;
 	pl.origin = add_vec(objs->origin,
-		mult_vec(objs->vecteur, objs->height));
+			mult_vec(objs->vecteur, objs->height));
 	tmp = hit_plane(&pl, r);
 	if (tmp.hit && distance(tmp.p, pl.origin) <= objs->radius
 		&& hit.dst > tmp.dst)

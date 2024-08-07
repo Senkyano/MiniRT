@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:33:39 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/07 17:37:36 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:59:12 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ void	sgline_supp(t_file **fd_lines)
 			free(tmp->line);
 			free(tmp);
 		}
-		else 
+		else
 			prev = tmp;
 		tmp = next;
 	}

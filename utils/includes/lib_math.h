@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 11:59:05 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/02 20:25:38 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/07 18:00:11 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ t_coord	mult_vec(t_coord vec1, double d);
 t_coord	normalize(t_coord vec);
 t_coord	invert_vec(t_coord vec);
 t_coord	inv_vec(t_coord v);
+double	distance(t_coord p1, t_coord p2);
 
 #endif
