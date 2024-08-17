@@ -6,7 +6,7 @@
 /*   By: rihoy <rihoy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:17:27 by rihoy             #+#    #+#             */
-/*   Updated: 2024/08/07 18:36:47 by rihoy            ###   ########.fr       */
+/*   Updated: 2024/08/17 15:21:42 by rihoy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*init_light(t_objs *obj, char **split, t_scene *scene)
 	scene->light_on = true;
 	if (!init_coord(&obj->origin, split[1]))
 		return (NULL);
-	if (!is_numberf(split[2]) || )
+	if (!is_numberf(split[2]))
 	{
 		printf_error(RED"Incorrect type of arguments for light brightness\n"RST);
 		return (NULL);
